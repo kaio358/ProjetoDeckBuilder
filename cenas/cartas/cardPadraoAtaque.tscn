@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://doda8h2hgb2sk"]
+
+[ext_resource type="Script" uid="uid://nyio3lfmcv01" path="res://scripts/cartas/card_padrao_ataque.gd" id="1_k3p8m"]
+[ext_resource type="Texture2D" uid="uid://dp6go4ptal5qm" path="res://sprites/cartas_base/MTG Monored Creature Template_2.jpg" id="1_vhrhg"]
+[ext_resource type="Texture2D" uid="uid://dfnccrcg66gvh" path="res://sprites/cartas_base/bolaAzul-removebg-preview.png" id="2_s85sp"]
+[ext_resource type="LabelSettings" uid="uid://ckgpcynbthti2" path="res://recursos/cartas/CustoBase.tres" id="3_rcv36"]
+[ext_resource type="LabelSettings" uid="uid://dfkh0hly01hkr" path="res://recursos/cartas/Nome.tres" id="4_gp03s"]
+[ext_resource type="LabelSettings" uid="uid://bcf8h3qbm6imu" path="res://recursos/cartas/TextoDano.tres" id="5_qypf7"]
+[ext_resource type="Texture2D" uid="uid://bal17w5gdhnyu" path="res://sprites/cartas_imagens/cavaleiro-removebg-preview.png" id="6_v0u53"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7n77a"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
+[node name="CardPadraoAtaque" type="Node2D" unique_id=1249038469]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_k3p8m")
+
+[node name="CardBase" type="Sprite2D" parent="." unique_id=1014995939]
+texture = ExtResource("1_vhrhg")
+
+[node name="CostDisplay" type="Node2D" parent="." unique_id=461725511]
+
+[node name="FiguraMana" type="Sprite2D" parent="CostDisplay" unique_id=995180854]
+position = Vector2(273.625, -430.1875)
+scale = Vector2(0.1255, 0.11925003)
+texture = ExtResource("2_s85sp")
+
+[node name="CustoBase" type="Label" parent="CostDisplay" unique_id=1186575171]
+offset_left = 236.66664
+offset_top = -493.3333
+offset_right = 316.66663
+offset_bottom = -366.66663
+text = "2"
+label_settings = ExtResource("3_rcv36")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardNome" type="Node2D" parent="." unique_id=1847375787]
+
+[node name="Nome" type="Label" parent="CardNome" unique_id=1742269938]
+offset_left = -247.0
+offset_top = -453.0
+offset_right = 229.0
+offset_bottom = -404.0
+text = "Teste"
+label_settings = ExtResource("4_gp03s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardTexto" type="Node2D" parent="." unique_id=2008833937]
+
+[node name="CardTexto" type="Label" parent="CardTexto" unique_id=366721642]
+custom_minimum_size = Vector2(500, 200)
+offset_left = -238.0
+offset_top = 166.0
+offset_right = 262.0
+offset_bottom = 366.0
+text = "Texto
+"
+label_settings = SubResource("LabelSettings_7n77a")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="TextoDeDano" type="Label" parent="CardTexto" unique_id=1706512393]
+offset_left = 220.0
+offset_top = 406.66666
+offset_right = 298.0
+offset_bottom = 448.66666
+text = "10"
+label_settings = ExtResource("5_qypf7")
+
+[node name="CardImage" type="Sprite2D" parent="." unique_id=1885062641]
+position = Vector2(5.999999, -172)
+scale = Vector2(0.7659375, 0.70966846)
+texture = ExtResource("6_v0u53")

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://gp8i87kt5gfl"]
+
+[ext_resource type="Script" uid="uid://dtp30or8qmjew" path="res://scripts/cartas/card_padrao_magia.gd" id="1_ifm25"]
+[ext_resource type="Texture2D" uid="uid://xffa4ka13whk" path="res://sprites/cartas_base/MTG Monogreen NonCreature Template_2.jpg" id="2_uds5p"]
+[ext_resource type="LabelSettings" uid="uid://dfkh0hly01hkr" path="res://recursos/cartas/Nome.tres" id="3_hrk20"]
+[ext_resource type="Texture2D" uid="uid://dfnccrcg66gvh" path="res://sprites/cartas_base/bolaAzul-removebg-preview.png" id="4_re2t4"]
+[ext_resource type="LabelSettings" uid="uid://ckgpcynbthti2" path="res://recursos/cartas/CustoBase.tres" id="5_yax5w"]
+[ext_resource type="Texture2D" uid="uid://c20dyc4m02imb" path="res://sprites/cartas_imagens/escudo-removebg-preview.png" id="7_sn8un"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vp5fq"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
+[node name="cardPadraoMagia" type="Node2D" unique_id=590115370]
+scale = Vector2(0.31, 0.31)
+script = ExtResource("1_ifm25")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1352232785]
+texture = ExtResource("2_uds5p")
+
+[node name="CardNome" type="Node2D" parent="." unique_id=1491628621]
+
+[node name="Nome" type="Label" parent="CardNome" unique_id=2099424605]
+offset_left = -247.0
+offset_top = -453.0
+offset_right = 229.0
+offset_bottom = -404.0
+text = "Teste"
+label_settings = ExtResource("3_hrk20")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostDisplay" type="Node2D" parent="." unique_id=214993284]
+
+[node name="FiguraMana" type="Sprite2D" parent="CostDisplay" unique_id=598298659]
+position = Vector2(273.625, -430.1875)
+scale = Vector2(0.1255, 0.11925003)
+texture = ExtResource("4_re2t4")
+
+[node name="CustoBase" type="Label" parent="CostDisplay" unique_id=1132345424]
+offset_left = 236.66664
+offset_top = -493.3333
+offset_right = 316.66663
+offset_bottom = -366.66663
+text = "2"
+label_settings = ExtResource("5_yax5w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardTexto" type="Node2D" parent="." unique_id=1361930653]
+
+[node name="CardTexto" type="Label" parent="CardTexto" unique_id=1058569431]
+custom_minimum_size = Vector2(500, 200)
+offset_left = -238.0
+offset_top = 166.0
+offset_right = 262.0
+offset_bottom = 366.0
+text = "Texto
+"
+label_settings = SubResource("LabelSettings_vp5fq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="CardImage" type="Sprite2D" parent="." unique_id=1288810471]
+position = Vector2(6, -174)
+scale = Vector2(0.7659375, 0.70966846)
+texture = ExtResource("7_sn8un")

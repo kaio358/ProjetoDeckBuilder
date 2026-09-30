@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dbx80ovdw6bjj"]
+
+[ext_resource type="PackedScene" uid="uid://doda8h2hgb2sk" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="1_30l5x"]
+[ext_resource type="PackedScene" uid="uid://gp8i87kt5gfl" path="res://cenas/cartas/cardPadraoMagia.tscn" id="2_mmp54"]
+
+[node name="Fase_1" type="Node2D" unique_id=2048300008]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=207110405]
+
+[node name="CardPadraoAtaque" parent="CanvasLayer" unique_id=1249038469 instance=ExtResource("1_30l5x")]
+position = Vector2(243, 441)
+
+[node name="cardPadraoMagia" parent="CanvasLayer" unique_id=590115370 instance=ExtResource("2_mmp54")]
+position = Vector2(450, 444)

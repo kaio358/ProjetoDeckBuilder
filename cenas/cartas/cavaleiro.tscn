@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://doda8h2hgb2sk"]
-
-[node name="Cavaleiro" type="Node2D" unique_id=1249038469]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014995939]
