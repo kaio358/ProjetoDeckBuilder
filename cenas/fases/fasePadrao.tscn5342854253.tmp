@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://l2xyr52je7ik"]
+
+[ext_resource type="Script" uid="uid://bguq703m6xfi3" path="res://scripts/fase/fase_padrao.gd" id="1_p2ek7"]
+[ext_resource type="PackedScene" uid="uid://doda8h2hgb2sk" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="1_uvkco"]
+[ext_resource type="PackedScene" uid="uid://gp8i87kt5gfl" path="res://cenas/cartas/cardPadraoMagia.tscn" id="2_p2ek7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n77a"]
+size = Vector2(1280, 450)
+
+[node name="FasePadrao" type="Node2D" unique_id=544651884]
+script = ExtResource("1_p2ek7")
+
+[node name="AreaDropCard" type="Area2D" parent="." unique_id=1912073930]
+position = Vector2(49, 35)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDropCard" unique_id=1190740240]
+position = Vector2(590, 189)
+shape = SubResource("RectangleShape2D_7n77a")
+
+[node name="BattleUI" type="CanvasLayer" parent="." unique_id=1143408887]
+
+[node name="mao" type="HBoxContainer" parent="BattleUI" unique_id=382296840]
+offset_left = 318.0
+offset_top = 480.0
+offset_right = 918.0
+offset_bottom = 680.0
+
+[node name="CardPadraoAtaque" parent="BattleUI/mao" unique_id=1249038469 instance=ExtResource("1_uvkco")]
+scale = Vector2(0.2, 0.2)
+
+[node name="cardPadraoMagia" parent="BattleUI/mao" unique_id=590115370 instance=ExtResource("2_p2ek7")]
+position = Vector2(205.99998, 8.999999)
+scale = Vector2(0.21, 0.21)

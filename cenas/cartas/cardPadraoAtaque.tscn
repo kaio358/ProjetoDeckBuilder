@@ -12,6 +12,9 @@
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n77a"]
+size = Vector2(665, 965)
+
 [node name="CardPadraoAtaque" type="Node2D" unique_id=1249038469]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_k3p8m")
@@ -75,3 +78,8 @@ label_settings = ExtResource("5_qypf7")
 position = Vector2(5.999999, -172)
 scale = Vector2(0.7659375, 0.70966846)
 texture = ExtResource("6_v0u53")
+
+[node name="AreaColisao" type="Area2D" parent="." unique_id=253822105]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaColisao" unique_id=825709587]
+shape = SubResource("RectangleShape2D_7n77a")

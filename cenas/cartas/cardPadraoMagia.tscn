@@ -11,9 +11,15 @@
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n77a"]
+size = Vector2(665, 965)
+
 [node name="cardPadraoMagia" type="Node2D" unique_id=590115370]
 scale = Vector2(0.31, 0.31)
 script = ExtResource("1_ifm25")
+cardNome = null
+custoBase = null
+cardTexto = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1352232785]
 texture = ExtResource("2_uds5p")
@@ -66,3 +72,8 @@ autowrap_mode = 1
 position = Vector2(6, -174)
 scale = Vector2(0.7659375, 0.70966846)
 texture = ExtResource("7_sn8un")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1064404646]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=805324699]
+shape = SubResource("RectangleShape2D_7n77a")
