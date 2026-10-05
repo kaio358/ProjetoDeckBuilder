@@ -57,4 +57,22 @@ func _soltar_carta() -> void:
 	z_index = 0
 	global_position = posicaoInicial
 	
-	
+
+# quase um objeto de set e get do java
+func configurar(dados_carta: Dictionary) -> void:
+	if dados_carta.has("nome"):
+		cardNome = dados_carta["nome"]
+
+	if dados_carta.has("custo"):
+		custoBase = dados_carta["custo"]
+
+	if dados_carta.has("texto"):
+		cardTexto = dados_carta["texto"]
+
+	if dados_carta.has("dano"):
+		textoDeDano = dados_carta["dano"]
+
+	custo_base.set_text(str(custoBase))
+	nome.set_text(cardNome)
+	card_texto.set_text(cardTexto)
+	texto_de_dano.set_text(str(textoDeDano))

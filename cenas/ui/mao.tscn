@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dp0c7p0wlca0t" path="res://scripts/cartas/mao.gd" id="1_si2ma"]
 
+[sub_resource type="PackedScene" id="PackedScene_j0v8r"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_si2ma"]
 radius = 100.0
 
 [node name="Mao" type="Node2D" unique_id=10372637]
 script = ExtResource("1_si2ma")
-espacamento_maximo = null
-largura_maxima_mao = null
-altura_arco_y = null
-inclinacao_maxima_deg = null
+cena_carta = SubResource("PackedScene_j0v8r")
 
 [node name="AreaDaMao" type="Area2D" parent="." unique_id=1695260691]
 
