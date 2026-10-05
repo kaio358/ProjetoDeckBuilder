@@ -56,3 +56,5 @@ func _soltar_carta() -> void:
 	arrastando = false
 	z_index = 0
 	global_position = posicaoInicial
+	
+	

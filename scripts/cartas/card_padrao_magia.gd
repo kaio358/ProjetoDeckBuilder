@@ -20,7 +20,7 @@ var offsetDoMouse: Vector2 = Vector2.ZERO
 var posicaoInicial: Vector2
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	custo_base.set_text(str(custoBase))
 	nome.set_text(cardNome)
