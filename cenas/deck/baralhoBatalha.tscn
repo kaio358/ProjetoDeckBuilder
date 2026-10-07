@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://iy0b31kjlkiw"]
+
+[ext_resource type="Script" uid="uid://cppiolxwvwgci" path="res://scripts/deck/baralho_batalha.gd" id="1_g2uxg"]
+[ext_resource type="Texture2D" uid="uid://56kgsmyvso8x" path="res://sprites/cartas_base/costaDaCarta.jpg" id="2_vfy15"]
+
+[node name="BaralhoBatalha" type="Node2D" unique_id=354183292]
+script = ExtResource("1_g2uxg")
+
+[node name="CartaTraseira" type="Sprite2D" parent="." unique_id=78286485]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_vfy15")
+
+[node name="Quantidade" type="Label" parent="." unique_id=830257447]
+offset_left = 14.0
+offset_top = 78.0
+offset_right = 54.0
+offset_bottom = 101.0
+text = "teste"

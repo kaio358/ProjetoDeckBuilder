@@ -1,11 +1,10 @@
 extends Node2D
 class_name Deck
 
-var cartas: Array = []
+var cartas: Array[Dictionary] = []
 
 func _ready() -> void:
-	pass
-	
+	_inicializar_deck()
 
 # Inicializar o deck
 func _inicializar_deck() -> void:
@@ -22,5 +21,12 @@ func _inicializar_deck() -> void:
 # get cartas disponiveis
 
 # Remover carta
-
+func remover_carta(dadosCarta: Dictionary) -> void:
+	cartas.erase(dadosCarta)
 # adicionar carta ao deck
+func adicionar_carta(dadosCarta: Dictionary) -> void:
+	cartas.append(dadosCarta)
+
+# Quantidade de cartas
+func quantidade_cartas() -> int:
+	return cartas.size()

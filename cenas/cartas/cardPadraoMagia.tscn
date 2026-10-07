@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://gp8i87kt5gfl"]
+[gd_scene format=3 uid="uid://b23n620hxyt7"]
 
 [ext_resource type="Script" uid="uid://dtp30or8qmjew" path="res://scripts/cartas/card_padrao_magia.gd" id="1_ifm25"]
 [ext_resource type="Texture2D" uid="uid://xffa4ka13whk" path="res://sprites/cartas_base/MTG Monogreen NonCreature Template_2.jpg" id="2_uds5p"]

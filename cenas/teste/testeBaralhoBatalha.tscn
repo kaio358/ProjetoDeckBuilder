@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dcwreafygmgap"]
+
+[ext_resource type="Script" uid="uid://crvbyl5rr38d8" path="res://scripts/teste/teste_baralho_batalha.gd" id="1_speet"]
+[ext_resource type="PackedScene" uid="uid://iy0b31kjlkiw" path="res://cenas/deck/baralhoBatalha.tscn" id="2_speet"]
+[ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="3_80x36"]
+
+[node name="TesteBaralhoBatalha" type="Node2D" unique_id=1407164989]
+script = ExtResource("1_speet")
+
+[node name="BaralhoBatalha" parent="." unique_id=354183292 instance=ExtResource("2_speet")]
+position = Vector2(619, 483)
+
+[node name="Deck" parent="." unique_id=1406295150 instance=ExtResource("3_80x36")]

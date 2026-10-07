@@ -1,5 +1,6 @@
 extends Node2D
 class_name CardPadraoMagia
+
 @export var cardNome: String = "Esse Nome"
 @export var custoBase: int = 3
 @export var cardTexto: String = " Texto Foda "

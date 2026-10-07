@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b7ck3ldi16mtm"]
+
+[ext_resource type="Script" uid="uid://bhh2lqbhs53pb" path="res://scripts/teste/teste_visualizador_deck.gd" id="1_shkda"]
+[ext_resource type="PackedScene" uid="uid://bjmbn4v50fotj" path="res://cenas/deck/visualizadorDeck.tscn" id="2_8rhvn"]
+[ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_yhmty"]
+[ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="4_8rhvn"]
+
+[node name="TesteVisualizadorDeck" type="Node2D" unique_id=1346742124]
+script = ExtResource("1_shkda")
+
+[node name="VisualizadorDeck" parent="." unique_id=1065299830 instance=ExtResource("2_8rhvn")]
+cena_carta = ExtResource("3_yhmty")
+
+[node name="Deck" parent="." unique_id=1406295150 instance=ExtResource("4_8rhvn")]

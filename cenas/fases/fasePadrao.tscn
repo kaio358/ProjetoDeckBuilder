@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://l2xyr52je7ik"]
+[gd_scene format=3 uid="uid://cl2bvxjcj1vxh"]
 
 [ext_resource type="Script" uid="uid://bguq703m6xfi3" path="res://scripts/fase/fase_padrao.gd" id="1_p2ek7"]
 [ext_resource type="PackedScene" uid="uid://du7s0prjrc174" path="res://cenas/ui/mao.tscn" id="2_uvkco"]
