@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name CardPadraoMagia
 @export var cardNome: String = "Esse Nome"
 @export var custoBase: int = 3
 @export var cardTexto: String = " Texto Foda "
@@ -57,3 +57,29 @@ func _soltar_carta() -> void:
 	arrastando = false
 	z_index = 0
 	global_position = posicaoInicial
+	
+func configurar(dados_carta: Dictionary) -> void:
+	if dados_carta.has("nome"):
+		cardNome = dados_carta["nome"]
+
+	if dados_carta.has("custo"):
+		custoBase = dados_carta["custo"]
+
+	if dados_carta.has("texto"):
+		cardTexto = dados_carta["texto"]
+
+
+
+	custo_base.set_text(str(custoBase))
+	nome.set_text(cardNome)
+	card_texto.set_text(cardTexto)
+	
+
+
+# Em manutenção, uma função PAI do Objeto
+# A função a principio identificaria se é cura, debuff, buff,entre outros.
+
+func tipo_card() ->void:
+	#if(CardPadraoMagia is Cura):
+	#	print("Teste")
+	pass

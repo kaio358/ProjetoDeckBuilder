@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name FasePadrao
 
 @onready var mao: Mao = $Mao
 

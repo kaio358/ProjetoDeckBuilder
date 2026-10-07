@@ -15,19 +15,18 @@ var cartas_na_mao: Array = []
 
 # Adiciona uma nova carta à mão
 func adicionar_carta(dados_carta) -> void:
-	# Verificação de segurança 1: Checa se a PackedScene foi configurada no Inspetor
+	# Verificação de segurança 1
 	if cena_carta == null:
 		push_error("ERRO [Mao]: A 'cena_carta' não foi atribuída no Inspetor do nó Mao!")
 		return
 
 	var nova_carta = cena_carta.instantiate()
 	
-	# Verificação de segurança 2: Checa se a carta foi instanciada corretamente
+	# Verificação de segurança 2
 	if nova_carta == null:
 		push_error("ERRO [Mao]: Falha ao instanciar 'cena_carta'.")
 		return
 
-	# Adiciona à cena ANTES de configurar para garantir que os nós filhas (@onready) já existam
 	add_child(nova_carta)
 
 	if nova_carta.has_method("configurar"):

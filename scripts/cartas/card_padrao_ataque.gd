@@ -1,4 +1,5 @@
 extends Node2D
+class_name CardPadraoAtaque 
 
 @export var cardNome: String = "Card Nome"
 @export var custoBase: int = 1

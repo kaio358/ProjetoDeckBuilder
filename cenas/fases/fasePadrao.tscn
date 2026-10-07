@@ -20,8 +20,4 @@ shape = SubResource("RectangleShape2D_7n77a")
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1143408887]
 
 [node name="Mao" parent="." unique_id=10372637 instance=ExtResource("2_uvkco")]
-position = Vector2(542, 543)
-espacamento_maximo = 120.0
-largura_maxima_mao = 600.0
-altura_arco_y = 18.0
-inclinacao_maxima_deg = 8.0
+position = Vector2(601, 574)
