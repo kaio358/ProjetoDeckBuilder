@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bjmbn4v50fotj"]
 
 [ext_resource type="Script" uid="uid://cxds601ybypdx" path="res://scripts/deck/visualizador_deck.gd" id="1_tiv65"]
+[ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="2_8phme"]
 
 [node name="VisualizadorDeck" type="Node2D" unique_id=1065299830]
 script = ExtResource("1_tiv65")
+cenaCarta = ExtResource("2_8phme")
 
 [node name="Cartas" type="Node2D" parent="." unique_id=778495313]
