@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmhn8rys73aep"]
 
-[ext_resource type="Script" uid="uid://nyio3lfmcv01" path="res://scripts/cartas/card_padrao_ataque.gd" id="1_k3p8m"]
+[ext_resource type="Script" uid="uid://b2qaxa2mnkrw3" path="res://scripts/cartas/card_padrao_ataque.gd" id="1_k3p8m"]
 [ext_resource type="Texture2D" uid="uid://dp6go4ptal5qm" path="res://sprites/cartas_base/MTG Monored Creature Template_2.jpg" id="1_vhrhg"]
 [ext_resource type="Texture2D" uid="uid://dfnccrcg66gvh" path="res://sprites/cartas_base/bolaAzul-removebg-preview.png" id="2_s85sp"]
 [ext_resource type="LabelSettings" uid="uid://ckgpcynbthti2" path="res://recursos/cartas/CustoBase.tres" id="3_rcv36"]

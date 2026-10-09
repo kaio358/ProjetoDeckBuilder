@@ -1,7 +1,6 @@
 extends Node2D
 class_name VisualizadorDeck
 
-
 @export_category("Configurações da Carta")
 @export var larguraCarta: float = 130.0
 @export var alturaCarta: float = 182.0
@@ -11,22 +10,20 @@ class_name VisualizadorDeck
 @export var espacamentoY: float = 20.0
 @export var margem: float = 50.0
 
-@export_category("Recursos")
-@export var cenaCarta: PackedScene
-
+@export_category("Cenas Base das Cartas")
+# Em vez de uma só, agora recebemos os "templates" de cada tipo
+@export var cenaBaseAtaque: PackedScene
+@export var cenaBaseMagia: PackedScene
 
 var deck: Deck
 
-
 @onready var cartas: Node2D = $Cartas
-
 
 # Recebe o deck que o jogador está usando e atualiza as cartas
 # que vão aparecer na tela usando os dados que estão dentro dele.
 func configurar(deckDoJogador: Deck) -> void:
 	deck = deckDoJogador
 	atualizarVisual()
-
 
 # Apaga as cartas que já estão na tela e cria novamente todas
 # as cartas que estão atualmente dentro do deck.
@@ -51,7 +48,27 @@ func atualizarVisual() -> void:
 	
 	for i in range(deck.cartas.size()):
 		var dadosCarta = deck.cartas[i]
-		var novaCarta = cenaCarta.instantiate()
+		
+		# --- NOVIDADE: Verifica o tipo para renderizar a cena certa ---
+		var tipoCarta = dadosCarta.get("tipo", "ataque") # Se não vier nada, assume que é ataque
+		var cenaCorreta: PackedScene
+		
+		# O match do Godot atua como o switch do JS
+		match tipoCarta:
+			"ataque":
+				cenaCorreta = cenaBaseAtaque
+			"magia":
+				cenaCorreta = cenaBaseMagia
+			_:
+				# Se vier um tipo bizarro, joga pra ataque pra não quebrar
+				cenaCorreta = cenaBaseAtaque
+				
+		# Trava de segurança: impede que o jogo crashe se o professor ou nós acabe de esquecer de plugar a cena
+		if cenaCorreta == null:
+			push_error("Erro de instanciamento: A cena base do tipo '" + tipoCarta + "' não foi vinculada no Inspetor!")
+			return
+			
+		var novaCarta = cenaCorreta.instantiate()
 		
 		cartas.add_child(novaCarta)
 		
@@ -72,7 +89,6 @@ func atualizarVisual() -> void:
 		posicaoY += linha * (alturaCarta + espacamentoY)
 		
 		novaCarta.position = Vector2(posicaoX, posicaoY)
-
 
 # Como a carta original pode ter qualquer tamanho, fazemos uma
 # conta para ela ficar com um tamanho padrão dentro do visualizador.

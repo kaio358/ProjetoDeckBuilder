@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc8g4435b5mo1" path="res://scripts/teste/teste_mao.gd" id="1_obslh"]
 [ext_resource type="PackedScene" uid="uid://du7s0prjrc174" path="res://cenas/ui/mao.tscn" id="2_j0v8r"]
-[ext_resource type="PackedScene" uid="uid://doda8h2hgb2sk" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_f8a14"]
+[ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_f8a14"]
 
 [node name="TesteMao" type="Node2D" unique_id=336265892]
 script = ExtResource("1_obslh")
