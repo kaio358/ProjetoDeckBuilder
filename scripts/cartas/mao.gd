@@ -1,6 +1,10 @@
 extends Node2D
 class_name Mao
 
+@export_category("Tamanho Padrão")
+@export var largura_alvo_carta: float = 170.0
+@export var altura_alvo_carta: float = 242.0
+
 @export_category("Configurações de Layout")
 @export var espacamento_maximo: float = 120.0
 @export var largura_maxima_mao: float = 600.0
@@ -8,30 +12,43 @@ class_name Mao
 @export var inclinacao_maxima_deg: float = 8.0   # Ângulo de rotação nas pontas
 
 @export_category("Recursos")
-@export var cena_carta: PackedScene
-
+@export var cenaBaseAtaque: PackedScene
+@export var cenaBaseMagia: PackedScene
 
 var cartas_na_mao: Array = []
 
 # Adiciona uma nova carta à mão
 func adicionar_carta(dados_carta) -> void:
 	
-	if cena_carta == null:
-		push_error("ERRO [Mao]: A 'cena_carta' não foi atribuída no Inspetor do nó Mao!")
+	var tipoCarta = dados_carta.get("tipo", "ataque")
+	var cenaCorreta: PackedScene
+	
+	match tipoCarta:
+		"ataque":
+			cenaCorreta = cenaBaseAtaque
+		"magia":
+			cenaCorreta = cenaBaseMagia
+		_:
+			cenaCorreta = cenaBaseAtaque
+			
+	if cenaCorreta == null:
+		push_error("ERRO [Mao]: A cena base do tipo '" + tipoCarta + "' não foi vinculada no Inspetor!")
 		return
 
-	var nova_carta = cena_carta.instantiate()
+	var nova_carta = cenaCorreta.instantiate()
+	add_child(nova_carta)
 	
 	
 	if nova_carta == null:
 		push_error("ERRO [Mao]: Falha ao instanciar 'cena_carta'.")
 		return
 
-	add_child(nova_carta)
+	
 
 	if nova_carta.has_method("configurar"):
 		nova_carta.configurar(dados_carta)
 
+	redimensionar_carta(nova_carta)
 	# Armazena os dados na própria carta para resgate posterior
 	nova_carta.set_meta("dados_carta", dados_carta)
 
@@ -81,3 +98,25 @@ func reorganizar_mao() -> void:
 		carta.position = posicao_alvo
 		carta.rotation = rot_rad
 	
+	
+# Como a carta original pode ter qualquer tamanho, fazemos uma
+# conta para ela ficar com um tamanho padrão na mão.
+func redimensionar_carta(carta: Node2D) -> void:
+	# Busca o Sprite2D que serve de fundo/base para a carta
+	var spriteBase: Sprite2D = carta.get_node_or_null("CardBase")
+	
+	if spriteBase == null or spriteBase.texture == null:
+		push_warning("Aviso: 'CardBase' não encontrado ou sem textura na carta " + carta.name)
+		return
+	
+	var tamanhoOriginal = spriteBase.texture.get_size()
+	
+	if tamanhoOriginal.x <= 0 or tamanhoOriginal.y <= 0:
+		return
+	
+	# Calcula a matemática da proporção
+	var escalaX = largura_alvo_carta / tamanhoOriginal.x
+	var escalaY = altura_alvo_carta / tamanhoOriginal.y
+	
+	# Aplica a escala na CARTA INTEIRA (textos, área de colisão e imagem vão diminuir juntos)
+	carta.scale = Vector2(escalaX, escalaY)

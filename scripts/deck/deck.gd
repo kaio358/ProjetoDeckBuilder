@@ -16,12 +16,14 @@ func _ready() -> void:
 # Inicializa o deck com cartas de teste variadas (mantemos igual)
 func _inicializar_deck() -> void:
 	for i in range(3):
+		# Mais tarde coloco a parte de imagem, vai dar trabalho
 		var cartaAtaque = {
 			"tipo": "ataque",
 			"nome": "Ataque " + str(i + 1),
 			"custo": 1,
 			"texto": "Causa dano direto",
-			"dano": 5
+			"dano": 5,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
 		cartas.append(cartaAtaque)
 		
@@ -32,7 +34,8 @@ func _inicializar_deck() -> void:
 			"nome": "Poção " + str(i + 1),
 			"custo": 2,
 			"texto": "Recupera vida",
-			"poder": 10
+			"poder": 10,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
 		cartas.append(cartaMagia)
 

@@ -10,7 +10,7 @@ class_name CartaBase
 @onready var labelCusto: Label = $CostDisplay/CustoBase
 @onready var labelTexto: Label = $CardTexto/CardTexto
 
-
+@onready var spriteDaCarta: Sprite2D = $CardImage
 @onready var areaColisao: Area2D = $AreaColisao
 
 # Variáveis de controle de drag & drop (camelCase)
@@ -83,6 +83,13 @@ func configurar(dadosCarta: Dictionary) -> void:
 	labelNome.set_text(cardNome)
 	labelTexto.set_text(cardTexto)
 	
+	if dadosCarta.has("caminho_imagem"):
+		# O comando load() do Godot puxa o arquivo do disco para a memória
+		var textura = load(dadosCarta["caminho_imagem"])
+		if textura != null:
+			spriteDaCarta.texture = textura
+		else:
+			push_warning("Arte não encontrada no caminho: " + dadosCarta["caminho_imagem"])
 	# Passa a bola pra carta filha configurar suas coisas extras (dano, cura, etc)
 	_configurarExtra(dadosCarta)
 

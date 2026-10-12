@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bguq703m6xfi3" path="res://scripts/fase/fase_padrao.gd" id="1_p2ek7"]
 [ext_resource type="PackedScene" uid="uid://du7s0prjrc174" path="res://cenas/ui/mao.tscn" id="2_uvkco"]
+[ext_resource type="PackedScene" uid="uid://iy0b31kjlkiw" path="res://cenas/deck/baralhoBatalha.tscn" id="3_i3gro"]
 [ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_p2ek7"]
 [ext_resource type="Script" uid="uid://ckenrnjmjy7k5" path="res://scripts/fase/gerenciador_turno.gd" id="4_hmvo2"]
-[ext_resource type="Script" uid="uid://cppiolxwvwgci" path="res://scripts/deck/baralho_batalha.gd" id="5_i3gro"]
+[ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="6_ufo4b"]
+[ext_resource type="PackedScene" uid="uid://b23n620hxyt7" path="res://cenas/cartas/cardPadraoMagia.tscn" id="7_eke0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n77a"]
 size = Vector2(1280, 450)
@@ -22,13 +24,20 @@ shape = SubResource("RectangleShape2D_7n77a")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1143408887]
 
-[node name="Mao" parent="." unique_id=10372637 instance=ExtResource("2_uvkco")]
-position = Vector2(618, 600)
-cena_carta = ExtResource("3_p2ek7")
-
-[node name="GerenciadorTurno" type="Node2D" parent="." unique_id=1196170749]
+[node name="GerenciadorTurno" type="Node2D" parent="." unique_id=1196170749 node_paths=PackedStringArray("maoJogador", "deckJogador", "baralhoVisual")]
+position = Vector2(52, 19)
 script = ExtResource("4_hmvo2")
+maoJogador = NodePath("../Mao")
+deckJogador = NodePath("../Deck")
+baralhoVisual = NodePath("BaralhoBatalha")
 
-[node name="BaralhoBatalha" type="Node2D" parent="GerenciadorTurno" unique_id=776959816]
-script = ExtResource("5_i3gro")
-metadata/_custom_type_script = "uid://cppiolxwvwgci"
+[node name="BaralhoBatalha" parent="GerenciadorTurno" unique_id=354183292 instance=ExtResource("3_i3gro")]
+position = Vector2(51, 565)
+
+[node name="Deck" parent="." unique_id=1406295150 instance=ExtResource("6_ufo4b")]
+position = Vector2(311, -29)
+
+[node name="Mao" parent="." unique_id=10372637 instance=ExtResource("2_uvkco")]
+position = Vector2(673, 581)
+cenaBaseAtaque = ExtResource("3_p2ek7")
+cenaBaseMagia = ExtResource("7_eke0r")
