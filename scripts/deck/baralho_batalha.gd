@@ -16,5 +16,6 @@ func configurar(deckDoJogador: Deck) -> void:
 func atualizar_visual() -> void:
 	if deck == null:
 		return
-	
-	quantidade.text = str(deck.quantidade_cartas())
+	# Antes tava : deck.quantidade_cartas(). Agora tá deck.quantidade_pilha_compra()
+	# Queremos verificar a quantidade da pilha, não o total de cartas que o jogador tem
+	quantidade.text = str(deck.quantidade_pilha_compra())

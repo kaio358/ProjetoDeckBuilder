@@ -19,6 +19,8 @@ var mouseSobre: bool = false
 var offsetDoMouse: Vector2 = Vector2.ZERO
 var posicaoInicial: Vector2
 
+static var cartaSendoArrastada: CartaBase = null
+
 func _ready() -> void:
 	# Atualiza a UI base
 	labelCusto.set_text(str(custoBase))
@@ -44,8 +46,13 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and mouseSobre:
-			_iniciarArrasto()
+			# Só inicia o arrasto se NENHUMA outra carta estiver sendo arrastada
+			if cartaSendoArrastada == null:
+				cartaSendoArrastada = self # Trava o arrasto para esta carta
+				_iniciarArrasto()
+				
 		elif not event.pressed and arrastando:
+			cartaSendoArrastada = null # Libera a trava para as outras cartas
 			_soltarCarta()
 
 func _on_mouse_entered() -> void:
