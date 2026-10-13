@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Inicializa o deck com cartas de teste variadas (mantemos igual)
 func _inicializar_deck() -> void:
-	for i in range(3):
+	for i in range(8):
 		# Mais tarde coloco a parte de imagem, vai dar trabalho
 		var cartaAtaque = {
 			"tipo": "ataque",
@@ -27,7 +27,7 @@ func _inicializar_deck() -> void:
 		}
 		cartas.append(cartaAtaque)
 		
-	for i in range(2):
+	for i in range(6):
 		var cartaMagia = {
 			"tipo": "magia",
 			"subtipo": "cura",
@@ -49,24 +49,25 @@ func _preparar_batalha() -> void:
 	pilhaDescarte.clear()
 
 
+# Dentro do arquivo deck.gd
+
 func comprar_carta() -> Dictionary:
-	# Se a pilha de compra esvaziar, pega o descarte e embaralha de novo
-	# Igual ao jogo Rogue Adventure: Roguelike RPG
+	# Se o baralho de compra está vazio:
 	if pilhaCompra.is_empty():
 		if pilhaDescarte.is_empty():
-			push_warning("Aviso: Nenhuma carta na compra e nem no descarte!")
-			# Retorna dicionário vazio para não quebrar o jogo
-			# Vai por mim, você não quer ver esse erro
-			return {} 
+			return {} # Acabaram as cartas do jogo todo
 		
-		print("Embaralhando a pilha de descarte...")
+		print("Baralho vazio! Embaralhando o cemitério (descarte)...")
+		# 1. Copia o cemitério de volta para a pilha de compra
 		pilhaCompra = pilhaDescarte.duplicate()
+		# 2. Embaralha tudo
 		pilhaCompra.shuffle()
+		# 3. Limpa o cemitério
 		pilhaDescarte.clear()
+		
 	
-	# pop_back() remove o último item do array e o devolve. 
-	# É perfeito para simular puxar a carta do topo do baralho!
-	return pilhaCompra.pop_back() 
+	# Retira a carta do topo do baralho e entrega para a Mão
+	return pilhaCompra.pop_back()
 
 # Recebe uma carta jogada (ou que sobrou na mão) e joga no lixo
 func enviar_para_descarte(dadosCarta: Dictionary) -> void:

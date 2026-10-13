@@ -17,6 +17,8 @@ class_name Mao
 
 var cartas_na_mao: Array = []
 
+# tipo o que fazemos no JS : document.getElementById("botao").addEventListener("click", minhaFuncao)
+signal carta_jogada(dados_da_carta)
 # Adiciona uma nova carta à mão
 func adicionar_carta(dados_carta) -> void:
 	
@@ -68,6 +70,23 @@ func descartar_mao() -> Array:
 	cartas_na_mao.clear()
 	
 	return dados_descartados
+
+
+func processar_jogada(carta_node: Node2D) -> void:
+	# Pega os dados que salvamos nela quando ela foi criada
+	var dados = carta_node.get_meta("dados_carta")
+	
+	# Avisa o mundo que a carta foi jogada
+	carta_jogada.emit(dados)
+	
+	# Remove a carta da lista da mão
+	cartas_na_mao.erase(carta_node)
+	
+	# Destrói o visual da carta
+	carta_node.queue_free()
+	
+	# Reorganiza o leque com as cartas que sobraram
+	reorganizar_mao()
 
 # Reorganiza posições, curvatura Y e rotação
 func reorganizar_mao() -> void:
