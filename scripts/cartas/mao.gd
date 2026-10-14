@@ -40,6 +40,7 @@ func adicionar_carta(dados_carta) -> void:
 	var nova_carta = cenaCorreta.instantiate()
 	add_child(nova_carta)
 	
+	nova_carta.connect("foi_jogada", Callable(self, "processar_jogada"))
 	
 	if nova_carta == null:
 		push_error("ERRO [Mao]: Falha ao instanciar 'cena_carta'.")

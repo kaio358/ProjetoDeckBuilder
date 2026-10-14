@@ -16,6 +16,10 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 		textoDeDano = dadosCarta["dano"]
 		labelDano.set_text(str(textoDeDano))
 
-# Sobrescreve a função de efeito para atacar
-func executarEfeito() -> void:
-	print("POW! A carta ", cardNome, " causou ", textoDeDano, " de dano ao inimigo!")
+# Sobrescreve a função de efeito 
+func executarEfeito(alvo: Node2D) -> void:
+	# print("POW! Carta de Ataque causou ", textoDeDano, " de dano no inimigo: ", alvo.name)
+	print("2. CARTA ATIVADA! O alvo tem a função receberDano? ", alvo.has_method("receberDano"))
+	# Chama a função no script do Inimigo!
+	if alvo.has_method("receber_dano"):
+		alvo.receber_dano(textoDeDano)

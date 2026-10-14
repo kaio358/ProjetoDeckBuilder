@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://dlvpr4aiv5846"]
+
+[ext_resource type="Texture2D" uid="uid://4ihv6ve8j50e" path="res://sprites/inimigos/orc/Without_shadow/orc1_idle_without_shadow.png" id="1_c6nlh"]
+[ext_resource type="Texture2D" uid="uid://cv1qvca532la5" path="res://sprites/inimigos/orc/Without_shadow/orc1_attack_without_shadow.png" id="1_daymw"]
+[ext_resource type="Script" uid="uid://caavpkgl37l4a" path="res://scripts/inimigos/inimigo_padrao.gd" id="1_kbywj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mqdf"]
+atlas = ExtResource("1_daymw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7h6t"]
+atlas = ExtResource("1_daymw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tuk3"]
+atlas = ExtResource("1_daymw")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6urtm"]
+atlas = ExtResource("1_daymw")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj4m0"]
+atlas = ExtResource("1_daymw")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dykaa"]
+atlas = ExtResource("1_daymw")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv80y"]
+atlas = ExtResource("1_daymw")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhaha"]
+atlas = ExtResource("1_daymw")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daymw"]
+atlas = ExtResource("1_c6nlh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbywj"]
+atlas = ExtResource("1_c6nlh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycb5d"]
+atlas = ExtResource("1_c6nlh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx48f"]
+atlas = ExtResource("1_c6nlh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7n77a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mqdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7h6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tuk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6urtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj4m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dykaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv80y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhaha")
+}],
+"loop": 1,
+"name": &"atacando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daymw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbywj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycb5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx48f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n77a"]
+size = Vector2(11.874063, 11.209532)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycb5d"]
+bg_color = Color(0.20025013, 0.20025013, 0.20025013, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mqdf"]
+bg_color = Color(0.7607843, 0.11764706, 0.09411765, 1)
+
+[node name="InimigoPadrao" type="Node2D" unique_id=466760575]
+script = ExtResource("1_kbywj")
+
+[node name="ArteInimigo" type="AnimatedSprite2D" parent="." unique_id=694541629]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_7n77a")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.004686603
+
+[node name="AreaAlvo" type="Area2D" parent="." unique_id=230891548 groups=["inimigo"]]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAlvo" unique_id=1787516417]
+position = Vector2(-1.2518749, -0.6690626)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_7n77a")
+
+[node name="InterfaceVida" type="Node2D" parent="." unique_id=421687348]
+position = Vector2(-2, -91)
+
+[node name="TextoVida" type="Label" parent="InterfaceVida" unique_id=1462191178]
+offset_left = 56.0
+offset_top = -45.0
+offset_right = 99.0
+offset_bottom = -22.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "50/50"
+
+[node name="BarraVida" type="ProgressBar" parent="InterfaceVida" unique_id=939516560]
+offset_left = -94.0
+offset_top = -51.0
+offset_right = 49.0
+offset_bottom = -16.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/background = SubResource("StyleBoxFlat_ycb5d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7mqdf")
+max_value = 20.0
+step = 1.0

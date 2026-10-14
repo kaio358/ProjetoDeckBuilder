@@ -21,6 +21,8 @@ var posicaoInicial: Vector2
 
 static var cartaSendoArrastada: CartaBase = null
 
+signal foi_jogada(carta_node)
+
 func _ready() -> void:
 	# Atualiza a UI base
 	labelCusto.set_text(str(custoBase))
@@ -70,9 +72,30 @@ func _iniciarArrasto() -> void:
 func _soltarCarta() -> void:
 	arrastando = false
 	z_index = 0
-	global_position = posicaoInicial
-	# Aqui no futuro chamaremos a função para ver se acertou um alvo
 	
+	var areas_vizinhas = areaColisao.get_overlapping_areas()
+	var alvo_atingido = null
+	
+	# Procura especificamente se encostou em uma área do grupo "inimigo"
+	for area in areas_vizinhas:
+		if area.is_in_group("inimigo"):
+			# Pega o Node raiz do inimigo (o pai da Area2D)
+			alvo_atingido = area.get_parent() 
+			
+			print("1. DETECTOU O INIMIGO! O pai do colisor é: ", alvo_atingido.name)
+			break 
+			
+	if alvo_atingido != null:
+		# Acertou um inimigo! Passamos ele para a função de efeito.
+		executarEfeito(alvo_atingido)
+		
+		# Fala para a Mão mandar a carta pro cemitério
+		foi_jogada.emit(self) 
+	else:
+		# Soltou no ar ou em lugar inválido, devolve pra mão
+		global_position = posicaoInicial
+		
+
 # Função genérica de set e get dos dados principais
 func configurar(dadosCarta: Dictionary) -> void:
 	if dadosCarta.has("nome"): cardNome = dadosCarta["nome"]
@@ -98,5 +121,5 @@ func _configurarExtra(_dadosCarta: Dictionary) -> void:
 	pass
 
 # A função de poder da carta! Cada filho vai implementar a sua
-func executarEfeito() -> void:
-	push_warning("Aviso: executando carta genérica sem efeito!")
+func executarEfeito(alvo: Node2D) -> void:
+	push_warning("Aviso: executando carta genérica no alvo: ", alvo.name)

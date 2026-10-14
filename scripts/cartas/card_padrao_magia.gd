@@ -12,17 +12,15 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 		poderMagico = dadosCarta["poder"]
 
 # Sobrescreve a função de efeito focada em suporte
-func executarEfeito() -> void:
-	# Um 'switch case' (match no Godot) para rodar o suporte certo
+# Adicionamos o '(alvo: Node2D)' aqui para não quebrar a regra do pai!
+func executarEfeito(_alvo: Node2D) -> void:
 	match subTipoMagia:
 		"cura":
+			# Cura ignora o alvo inimigo e foca no jogador
 			print("Brilho verde! O jogador curou ", poderMagico, " de HP.")
-			# logicaDeCurarJogador(poderMagico)
 		"buff_ataque":
 			print("Aura vermelha! O próximo ataque ganha +", poderMagico, " de dano.")
-			# logicaDeBuff(poderMagico)
 		"comprar_carta":
 			print("Visão de jogo! O jogador compra ", poderMagico, " cartas novas.")
-			# logicaDeComprar(poderMagico)
 		_:
 			print("Efeito de magia desconhecido!")
