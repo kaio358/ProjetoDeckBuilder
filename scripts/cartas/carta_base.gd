@@ -82,7 +82,6 @@ func _soltarCarta() -> void:
 			# Pega o Node raiz do inimigo (o pai da Area2D)
 			alvo_atingido = area.get_parent() 
 			
-			print("1. DETECTOU O INIMIGO! O pai do colisor é: ", alvo_atingido.name)
 			break 
 			
 	if alvo_atingido != null:

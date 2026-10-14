@@ -22,10 +22,10 @@ func _ready() -> void:
 func atualizarInterfaceVida() -> void:
 	if labelVida != null:
 		labelVida.text = str(vidaAtual) + "/" + str(vidaMaxima)
-		
+
 	if barraVida != null:
-		barraVida.value = vidaAtual
 		barraVida.max_value = vidaMaxima
+		barraVida.value = vidaAtual
 
 # === FUNÇÃO QUE A CARTA DE ATAQUE VAI CHAMAR ===
 func receberDano(dano: int) -> void:

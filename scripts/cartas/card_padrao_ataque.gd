@@ -19,7 +19,7 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 # Sobrescreve a função de efeito 
 func executarEfeito(alvo: Node2D) -> void:
 	# print("POW! Carta de Ataque causou ", textoDeDano, " de dano no inimigo: ", alvo.name)
-	print("2. CARTA ATIVADA! O alvo tem a função receberDano? ", alvo.has_method("receberDano"))
+	
 	# Chama a função no script do Inimigo!
-	if alvo.has_method("receber_dano"):
-		alvo.receber_dano(textoDeDano)
+	if alvo.has_method("receberDano"):
+		alvo.receberDano(textoDeDano)

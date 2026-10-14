@@ -118,12 +118,12 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7n77a")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.004686603
+frame_progress = 0.16427992
 
 [node name="AreaAlvo" type="Area2D" parent="." unique_id=230891548 groups=["inimigo"]]
 scale = Vector2(4, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAlvo" unique_id=1787516417]
+[node name="ColisorAlvo" type="CollisionShape2D" parent="AreaAlvo" unique_id=1787516417]
 position = Vector2(-1.2518749, -0.6690626)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_7n77a")
