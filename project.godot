@@ -15,6 +15,10 @@ run/main_scene="uid://dobskhlfvhduh"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DadosJogador="*uid://c6vcwmt4tc7bo"
+
 [display]
 
 window/size/viewport_width=1280

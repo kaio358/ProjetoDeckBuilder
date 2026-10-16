@@ -12,12 +12,12 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 		poderMagico = dadosCarta["poder"]
 
 # Sobrescreve a função de efeito focada em suporte
-# Adicionamos o '(alvo: Node2D)' aqui para não quebrar a regra do pai!
+
 func executarEfeito(_alvo: Node2D) -> void:
 	match subTipoMagia:
 		"cura":
-			# Cura ignora o alvo inimigo e foca no jogador
 			print("Brilho verde! O jogador curou ", poderMagico, " de HP.")
+			DadosJogador.curar(poderMagico)
 		"buff_ataque":
 			print("Aura vermelha! O próximo ataque ganha +", poderMagico, " de dano.")
 		"comprar_carta":

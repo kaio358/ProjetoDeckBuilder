@@ -66,10 +66,23 @@ func passarTurno() -> void:
 
 func iniciarTurnoInimigo() -> void:
 	faseAtual = FasesDoTurno.TURNO_INIMIGO
+	print("--- TURNO DO INIMIGO COMEÇOU ---")
 	
-	# O inimigo fantasma pensa por 1.5s
-	await get_tree().create_timer(1.5).timeout
+	# Pega todas as áreas do grupo 'inimigo' na cena
+	var areasInimigos = get_tree().get_nodes_in_group("inimigo")
 	
+	for area in areasInimigos:
+		var inimigo = area.get_parent()
+		
+		# Verifica se o inimigo ainda está vivo e tem a função de ataque
+		if is_instance_valid(inimigo) and inimigo.has_method("atacarJogador"):
+			print("Inimigo ", inimigo.name, " está atacando!")
+			inimigo.atacarJogador()
+			
+			# Pausa dramática de 1 segundo para o jogador ver a animação
+			await get_tree().create_timer(1.0).timeout
+			
+	# Após todos os inimigos atacarem, passa a vez de volta para o jogador
 	iniciarTurnoJogador()
 
 

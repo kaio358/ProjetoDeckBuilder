@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du7s0prjrc174"]
 
-[ext_resource type="Script" uid="uid://dp0c7p0wlca0t" path="res://scripts/cartas/mao.gd" id="1_si2ma"]
+[ext_resource type="Script" uid="uid://dp0c7p0wlca0t" path="res://scripts/ui/mao.gd" id="1_si2ma"]
 
 [sub_resource type="PackedScene" id="PackedScene_j0v8r"]
 

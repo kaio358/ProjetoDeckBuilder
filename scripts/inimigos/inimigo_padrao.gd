@@ -4,7 +4,7 @@ class_name InimigoPadrao
 @export var vidaMaxima: int = 20
 var vidaAtual: int
 
-# Referências aos nós filhos (ajuste os nomes se os seus estiverem diferentes)
+# Referências aos nós filhos 
 @onready var arteInimigo: AnimatedSprite2D = $ArteInimigo
 @onready var labelVida: Label = $InterfaceVida/TextoVida
 @onready var barraVida: ProgressBar = $InterfaceVida/BarraVida 
@@ -43,8 +43,10 @@ func receberDano(dano: int) -> void:
 		morrer()
 
 func atacarJogador() -> void:
-	# Toca a animação que você criou no painel
 	arteInimigo.play("atacando")
+	
+	# Aplica o dano diretamente no gerenciador global de dados do jogador
+	DadosJogador.receberDano(5) # teste 5 de dano
 	
 func _onAnimacaoTerminou() -> void:
 	# Se ele terminou de atacar, volta a ficar parado

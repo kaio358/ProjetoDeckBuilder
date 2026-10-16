@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl2bvxjcj1vxh"]
 
 [ext_resource type="Script" uid="uid://bguq703m6xfi3" path="res://scripts/fase/fase_padrao.gd" id="1_p2ek7"]
+[ext_resource type="Script" uid="uid://dlklwn1cgac3s" path="res://scripts/ui/interfaceVidaJogador.gd" id="2_t4gaf"]
 [ext_resource type="PackedScene" uid="uid://du7s0prjrc174" path="res://cenas/ui/mao.tscn" id="2_uvkco"]
 [ext_resource type="PackedScene" uid="uid://iy0b31kjlkiw" path="res://cenas/deck/baralhoBatalha.tscn" id="3_i3gro"]
 [ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_p2ek7"]
@@ -21,6 +22,32 @@ offset_right = 1157.0
 offset_bottom = 594.0
 text = "Passar Turno"
 
+[node name="InterfaceVidaJogador" type="Control" parent="BattleUI" unique_id=851099001]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1108.0
+offset_top = 641.0
+offset_right = 1148.0
+offset_bottom = 681.0
+script = ExtResource("2_t4gaf")
+
+[node name="BarraVidaJogador" type="ProgressBar" parent="BattleUI/InterfaceVidaJogador" unique_id=260087175]
+layout_mode = 0
+offset_left = -97.0
+offset_right = 74.0
+offset_bottom = 31.0
+
+[node name="TextoVidaJogador" type="Label" parent="BattleUI/InterfaceVidaJogador" unique_id=1222691924]
+layout_mode = 0
+offset_left = 87.0
+offset_top = -7.0
+offset_right = 142.0
+offset_bottom = 42.0
+text = "50/50
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GerenciadorTurno" type="Node2D" parent="." unique_id=1196170749 node_paths=PackedStringArray("maoJogador", "deckJogador", "baralhoVisual")]
 position = Vector2(52, 19)
 script = ExtResource("4_hmvo2")
@@ -35,7 +62,7 @@ position = Vector2(51, 565)
 position = Vector2(311, -29)
 
 [node name="Mao" parent="." unique_id=10372637 instance=ExtResource("2_uvkco")]
-position = Vector2(673, 581)
+position = Vector2(628, 581)
 cenaBaseAtaque = ExtResource("3_p2ek7")
 cenaBaseMagia = ExtResource("7_eke0r")
 
