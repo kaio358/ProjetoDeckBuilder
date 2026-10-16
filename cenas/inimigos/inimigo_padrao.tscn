@@ -79,7 +79,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mhaha")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"atacando",
 "speed": 5.0
 }, {
@@ -116,9 +116,8 @@ script = ExtResource("1_kbywj")
 [node name="ArteInimigo" type="AnimatedSprite2D" parent="." unique_id=694541629]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7n77a")
-animation = &"idle"
+animation = &"atacando"
 autoplay = "idle"
-frame_progress = 0.16427992
 
 [node name="AreaAlvo" type="Area2D" parent="." unique_id=230891548 groups=["inimigo"]]
 scale = Vector2(4, 4)
@@ -151,3 +150,12 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ycb5d")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7mqdf")
 max_value = 20.0
 step = 1.0
+
+[node name="DisplayIntencao" type="Label" parent="." unique_id=6291630]
+offset_left = -64.0
+offset_top = 91.0
+offset_right = -24.0
+offset_bottom = 114.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "teste"

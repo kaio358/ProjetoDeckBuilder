@@ -81,7 +81,10 @@ func iniciarTurnoInimigo() -> void:
 			
 			# Pausa dramática de 1 segundo para o jogador ver a animação
 			await get_tree().create_timer(1.0).timeout
-			
+			# Após atacar o inimigo planeja na sua próximo turno
+			if inimigo.has_method("planejarProximoTurno"):
+				inimigo.planejarProximoTurno()
+				
 	# Após todos os inimigos atacarem, passa a vez de volta para o jogador
 	iniciarTurnoJogador()
 
