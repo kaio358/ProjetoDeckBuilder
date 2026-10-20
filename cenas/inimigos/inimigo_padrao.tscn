@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4ihv6ve8j50e" path="res://sprites/inimigos/orc/Without_shadow/orc1_idle_without_shadow.png" id="1_c6nlh"]
 [ext_resource type="Texture2D" uid="uid://cv1qvca532la5" path="res://sprites/inimigos/orc/Without_shadow/orc1_attack_without_shadow.png" id="1_daymw"]
 [ext_resource type="Script" uid="uid://caavpkgl37l4a" path="res://scripts/inimigos/inimigo_padrao.gd" id="1_kbywj"]
+[ext_resource type="Texture2D" uid="uid://c8hxbeio02w70" path="res://sprites/status/escudo-removebg-preview.png" id="4_ycb5d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mqdf"]
 atlas = ExtResource("1_daymw")
@@ -159,3 +160,22 @@ offset_bottom = 114.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "teste"
+
+[node name="GrupoEscudo" type="Node2D" parent="." unique_id=257916473]
+
+[node name="IconeEscudo" type="Sprite2D" parent="GrupoEscudo" unique_id=384483606]
+position = Vector2(-122, -125)
+scale = Vector2(0.081499994, 0.07799999)
+texture = ExtResource("4_ycb5d")
+
+[node name="TextoEscudo" type="Label" parent="GrupoEscudo" unique_id=186413528]
+z_index = 2
+offset_left = -141.0
+offset_top = -142.0
+offset_right = -101.0
+offset_bottom = -110.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1

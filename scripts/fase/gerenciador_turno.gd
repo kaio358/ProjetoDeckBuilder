@@ -75,9 +75,8 @@ func iniciarTurnoInimigo() -> void:
 		var inimigo = area.get_parent()
 		
 		# Verifica se o inimigo ainda está vivo e tem a função de ataque
-		if is_instance_valid(inimigo) and inimigo.has_method("atacarJogador"):
-			print("Inimigo ", inimigo.name, " está atacando!")
-			inimigo.atacarJogador()
+		if is_instance_valid(inimigo) and inimigo.has_method("executarAcaoTurno"):
+			inimigo.executarAcaoTurno()
 			
 			# Pausa dramática de 1 segundo para o jogador ver a animação
 			await get_tree().create_timer(1.0).timeout
