@@ -16,11 +16,25 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 func executarEfeito(_alvo: Node2D) -> void:
 	match subTipoMagia:
 		"cura":
-			print("Brilho verde! O jogador curou ", poderMagico, " de HP.")
-			DadosJogador.curar(poderMagico)
+			var curaReal = DadosJogador.calcularEfeitoComCombo(poderMagico)
+			print("Brilho verde! O jogador curou ", curaReal, " de HP com combos.")
+			DadosJogador.curar(curaReal)
+		"defesa":
+			var defesaReal = DadosJogador.calcularEfeitoComCombo(poderMagico)
+			DadosJogador.ganharArmadura(defesaReal)
 		"buff_ataque":
 			print("Aura vermelha! O próximo ataque ganha +", poderMagico, " de dano.")
 		"comprar_carta":
 			print("Visão de jogo! O jogador compra ", poderMagico, " cartas novas.")
+		
+		# === OS COMBOS MATEMÁTICOS ===
+		"soma":
+			DadosJogador.adicionarSoma(poderMagico)
+		"multiplicacao":
+			DadosJogador.adicionarMultiplicador(poderMagico)
+		"divisao":
+			# Pode ser usado como debuff no inimigo no futuro!
+			pass
+			
 		_:
 			print("Efeito de magia desconhecido!")

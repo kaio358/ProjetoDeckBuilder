@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Inicializa o deck com cartas de teste variadas (mantemos igual)
 func _inicializar_deck() -> void:
-	for i in range(8):
+	for i in range(4):
 		# Mais tarde coloco a parte de imagem, vai dar trabalho
 		var cartaAtaque = {
 			"tipo": "ataque",
@@ -26,15 +26,53 @@ func _inicializar_deck() -> void:
 			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
 		cartas.append(cartaAtaque)
-		
-	for i in range(6):
+	# Defesa
+	for i in range(4):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "defesa",
+			"nome": "Defesa " + str(i + 1),
+			"custo": 2,
+			"texto": "Defesa +10",
+			"poder": 10,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		cartas.append(cartaMagia)
+	#Cura
+	for i in range(2):
 		var cartaMagia = {
 			"tipo": "magia",
 			"subtipo": "cura",
 			"nome": "Poção " + str(i + 1),
 			"custo": 2,
-			"texto": "Recupera vida",
+			"texto": "Cura +10",
 			"poder": 10,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		cartas.append(cartaMagia)
+		
+	#Soma
+	for i in range(2):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "soma",
+			"nome": "Soma " + str(i + 1),
+			"custo": 2,
+			"texto": "Soma +5 à próxima carta",
+			"poder": 5,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		cartas.append(cartaMagia)
+		
+	# Multiplicação 
+	for i in range(2):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "multiplicacao",
+			"nome": "Multiplicação " + str(i + 1),
+			"custo": 2,
+			"texto": "Multiplica (X2) a próxima carta",
+			"poder": 2,
 			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
 		cartas.append(cartaMagia)

@@ -37,6 +37,9 @@ func _iniciarCombate() -> void:
 func iniciarTurnoJogador() -> void:
 	faseAtual = FasesDoTurno.INICIO_TURNO
 	
+	# Zera armadura do jogadors
+	DadosJogador.iniciarNovoTurno()
+	
 	# Puxa cartas ATÉ completar 5 na mão. 
 	# Se faltam 4 no baralho, ele puxa as 4, embaralha o cemitério, e puxa mais 1.
 	while maoJogador.cartas_na_mao.size() < 5:

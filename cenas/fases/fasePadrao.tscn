@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dlklwn1cgac3s" path="res://scripts/ui/interfaceVidaJogador.gd" id="2_t4gaf"]
 [ext_resource type="PackedScene" uid="uid://du7s0prjrc174" path="res://cenas/ui/mao.tscn" id="2_uvkco"]
 [ext_resource type="PackedScene" uid="uid://iy0b31kjlkiw" path="res://cenas/deck/baralhoBatalha.tscn" id="3_i3gro"]
+[ext_resource type="Texture2D" uid="uid://c8hxbeio02w70" path="res://sprites/status/escudo-removebg-preview.png" id="3_lxext"]
 [ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_p2ek7"]
 [ext_resource type="Script" uid="uid://ckenrnjmjy7k5" path="res://scripts/fase/gerenciador_turno.gd" id="4_hmvo2"]
 [ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="6_ufo4b"]
@@ -56,6 +57,24 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "50/50
 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrupoEscudoJogador" type="Node2D" parent="BattleUI/InterfaceVidaJogador" unique_id=365042501]
+position = Vector2(-125, 17)
+
+[node name="IconeEscudo" type="Sprite2D" parent="BattleUI/InterfaceVidaJogador/GrupoEscudoJogador" unique_id=1850938374]
+position = Vector2(-1.9999653, 0.49998093)
+scale = Vector2(0.10000009, 0.09000009)
+texture = ExtResource("3_lxext")
+
+[node name="TextoEscudo" type="Label" parent="BattleUI/InterfaceVidaJogador/GrupoEscudoJogador" unique_id=187032716]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 9.0
+theme_override_constants/outline_size = 4
+text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -18,8 +18,12 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 
 # Sobrescreve a função de efeito 
 func executarEfeito(alvo: Node2D) -> void:
-	# print("POW! Carta de Ataque causou ", textoDeDano, " de dano no inimigo: ", alvo.name)
+	var danoReal = DadosJogador.calcularDanoComCombo(textoDeDano)
+	
 	
 	# Chama a função no script do Inimigo!
+	
+	print("POW! Ataque base (", textoDeDano, ") virou ", danoReal, " com os combos!")
+	
 	if alvo.has_method("receberDano"):
-		alvo.receberDano(textoDeDano)
+		alvo.receberDano(danoReal)
