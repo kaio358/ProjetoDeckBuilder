@@ -18,7 +18,7 @@ func _configurarExtra(dadosCarta: Dictionary) -> void:
 
 # Sobrescreve a função de efeito 
 func executarEfeito(alvo: Node2D) -> void:
-	var danoReal = DadosJogador.calcularDanoComCombo(textoDeDano)
+	var danoReal = DadosJogador.calcularEfeitoComCombo(textoDeDano)
 	
 	
 	# Chama a função no script do Inimigo!

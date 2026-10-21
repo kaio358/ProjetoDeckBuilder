@@ -85,11 +85,19 @@ func _soltarCarta() -> void:
 			break 
 			
 	if alvo_atingido != null:
-		# Acertou um inimigo! Passamos ele para a função de efeito.
-		executarEfeito(alvo_atingido)
 		
-		# Fala para a Mão mandar a carta pro cemitério
-		foi_jogada.emit(self) 
+		# Parece que isso aqui resolve o problema. A carta pergunta se pode gastar a mana (custoBase).
+		# Se a resposta for true, ela gasta, executa o efeito e vai pro cemitério.
+		if DadosJogador.tentarGastarMana(custoBase):
+			# Acertou um inimigo! Passamos ele para a função de efeito.
+			executarEfeito(alvo_atingido)
+			
+			# Fala para a Mão mandar a carta pro cemitério
+			foi_jogada.emit(self) 
+			
+		else:
+			# Se a resposta for false (sem mana), ela recusa o ataque e volta pro leque.
+			global_position = posicaoInicial
 	else:
 		# Soltou no ar ou em lugar inválido, devolve pra mão
 		global_position = posicaoInicial

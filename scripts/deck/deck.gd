@@ -32,7 +32,7 @@ func _inicializar_deck() -> void:
 			"tipo": "magia",
 			"subtipo": "defesa",
 			"nome": "Defesa " + str(i + 1),
-			"custo": 2,
+			"custo": 1,
 			"texto": "Defesa +10",
 			"poder": 10,
 			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"

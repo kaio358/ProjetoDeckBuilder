@@ -5,6 +5,7 @@ extends Node
 # Ele não quer saber quem está ouvindo, ele apenas grita: "Ei, a interface mudou! Aqui estão os novos números!"
 signal interfaceAlterada(vidaAtual, vidaMaxima,armaduraAtual)
 signal jogadorMorreu
+signal manaAlterada(manaAtual, manaMaxima)
 
 # Status e vida do jogador
 @export var vidaMaxima: int = 80
@@ -15,10 +16,16 @@ var armaduraAtual: int = 0
 var bonusSoma: int = 0
 var bonusMultiplicador: int = 1
 
+# Para mana
+@export var manaMaxima: int = 3
+var manaAtual: int
+
 func _ready() -> void:
 	# Começa a run com vida cheia
 	vidaAtual = vidaMaxima
-
+	
+	manaAtual = manaMaxima
+	
 # Reseta a vida para o início de uma nova campanha/run
 func resetarParaNovaRun() -> void:
 	vidaAtual = vidaMaxima
@@ -28,8 +35,11 @@ func resetarParaNovaRun() -> void:
 # No começo de cada turno do jogador, a armadura do turno passado zera
 func iniciarNovoTurno() -> void:
 	armaduraAtual = 0
+	manaAtual = manaMaxima
 	# Eu acho que o '.emit()' é o momento exato em que ele solta o grito avisando que a armadura zerou.
 	interfaceAlterada.emit(vidaAtual, vidaMaxima, armaduraAtual)
+	# Na teoria, este grito atualiza a interface visual no começo do turno para "3/3"
+	manaAlterada.emit(manaAtual, manaMaxima)
 
 func ganharArmadura(quantidade: int) -> void:
 	armaduraAtual += quantidade
@@ -72,7 +82,17 @@ func curar(quantidade: int) -> void:
 	print("Arthur curou ", quantidade, " de HP! Vida atual: ", vidaAtual)
 	interfaceAlterada.emit(vidaAtual, vidaMaxima,armaduraAtual)
 	
-	
+# Literalmente ao gastar mana, será descontado da folha de pagamento haha
+func tentarGastarMana(custo: int) -> bool:
+	if manaAtual >= custo:
+		manaAtual -= custo
+		print("Arthur gastou ", custo, " de mana. Restam: ", manaAtual)
+		manaAlterada.emit(manaAtual, manaMaxima)
+		return true
+	else:
+		print("Sem energia! Mana insuficiente para jogar esta carta.")
+		return false
+
 	
 # Para o combo
 

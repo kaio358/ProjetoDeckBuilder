@@ -15,7 +15,6 @@ font_color = Color(0, 0, 0, 1)
 size = Vector2(665, 965)
 
 [node name="cardPadraoMagia" type="Node2D" unique_id=590115370]
-scale = Vector2(0.31, 0.31)
 script = ExtResource("1_ifm25")
 
 [node name="CardBase" type="Sprite2D" parent="." unique_id=1352232785]

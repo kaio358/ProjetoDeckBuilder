@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c8hxbeio02w70" path="res://sprites/status/escudo-removebg-preview.png" id="3_lxext"]
 [ext_resource type="PackedScene" uid="uid://cmhn8rys73aep" path="res://cenas/cartas/cardPadraoAtaque.tscn" id="3_p2ek7"]
 [ext_resource type="Script" uid="uid://ckenrnjmjy7k5" path="res://scripts/fase/gerenciador_turno.gd" id="4_hmvo2"]
+[ext_resource type="Texture2D" uid="uid://dfnccrcg66gvh" path="res://sprites/cartas_base/bolaAzul-removebg-preview.png" id="4_s7tfi"]
+[ext_resource type="Script" uid="uid://b3n0rufpggixc" path="res://scripts/ui/interface_mana.gd" id="4_vf7on"]
 [ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="6_ufo4b"]
 [ext_resource type="PackedScene" uid="uid://b23n620hxyt7" path="res://cenas/cartas/cardPadraoMagia.tscn" id="7_eke0r"]
 [ext_resource type="PackedScene" uid="uid://dlvpr4aiv5846" path="res://cenas/inimigos/inimigo_padrao.tscn" id="8_leek5"]
@@ -23,10 +25,10 @@ script = ExtResource("1_p2ek7")
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1143408887]
 
 [node name="BotaoPassarTurno" type="Button" parent="BattleUI" unique_id=143548411]
-offset_left = 1047.0
-offset_top = 563.0
-offset_right = 1157.0
-offset_bottom = 594.0
+offset_left = 1121.0
+offset_top = 562.0
+offset_right = 1231.0
+offset_bottom = 593.0
 text = "Passar Turno"
 
 [node name="InterfaceVidaJogador" type="Control" parent="BattleUI" unique_id=851099001]
@@ -78,8 +80,33 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="InterfaceMana" type="Control" parent="BattleUI" unique_id=586336659]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1045.0
+offset_top = 579.0
+offset_right = 1085.0
+offset_bottom = 619.0
+script = ExtResource("4_vf7on")
+
+[node name="IconeMana" type="Sprite2D" parent="BattleUI/InterfaceMana" unique_id=1993214591]
+position = Vector2(-3.8146973e-06, 3.8146973e-06)
+scale = Vector2(0.13399999, 0.13799998)
+texture = ExtResource("4_s7tfi")
+
+[node name="TextoMana" type="Label" parent="BattleUI/InterfaceMana" unique_id=1350639685]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -17.0
+offset_right = 29.0
+offset_bottom = 12.0
+theme_override_constants/outline_size = 4
+text = "3/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GerenciadorTurno" type="Node2D" parent="." unique_id=1196170749 node_paths=PackedStringArray("maoJogador", "deckJogador", "baralhoVisual")]
-position = Vector2(52, 19)
+position = Vector2(59, 26)
 script = ExtResource("4_hmvo2")
 maoJogador = NodePath("../Mao")
 deckJogador = NodePath("../Deck")
@@ -89,7 +116,7 @@ baralhoVisual = NodePath("BaralhoBatalha")
 position = Vector2(51, 565)
 
 [node name="Deck" parent="." unique_id=1406295150 instance=ExtResource("6_ufo4b")]
-position = Vector2(311, -29)
+position = Vector2(96, 25)
 
 [node name="Mao" parent="." unique_id=10372637 instance=ExtResource("2_uvkco")]
 position = Vector2(628, 581)

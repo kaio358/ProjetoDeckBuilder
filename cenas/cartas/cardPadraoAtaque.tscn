@@ -16,7 +16,6 @@ font_color = Color(0, 0, 0, 1)
 size = Vector2(665, 965)
 
 [node name="CardPadraoAtaque" type="Node2D" unique_id=1249038469]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_k3p8m")
 
 [node name="CardBase" type="Sprite2D" parent="." unique_id=1014995939]
@@ -34,6 +33,7 @@ offset_left = 236.66664
 offset_top = -493.3333
 offset_right = 316.66663
 offset_bottom = -366.66663
+theme_override_constants/outline_size = 4
 text = "2"
 label_settings = ExtResource("3_rcv36")
 horizontal_alignment = 1
@@ -67,12 +67,17 @@ vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="TextoDeDano" type="Label" parent="CardTexto" unique_id=1706512393]
-offset_left = 220.0
+offset_left = 203.33331
 offset_top = 406.66666
-offset_right = 298.0
-offset_bottom = 448.66666
+offset_right = 288.0
+offset_bottom = 453.3333
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
 text = "10"
 label_settings = ExtResource("5_qypf7")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CardImage" type="Sprite2D" parent="." unique_id=1885062641]
 position = Vector2(5.999999, -172)
