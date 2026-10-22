@@ -20,6 +20,10 @@ var bonusMultiplicador: int = 1
 @export var manaMaxima: int = 3
 var manaAtual: int
 
+
+# 1 = Floresta, 2 = Vila, 3 = Castelo
+var faseDesbloqueada: int = 1
+
 func _ready() -> void:
 	# Começa a run com vida cheia
 	vidaAtual = vidaMaxima

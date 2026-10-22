@@ -66,23 +66,25 @@ func iniciarTurnoInimigo() -> void:
 	faseAtual = FasesDoTurno.TURNO_INIMIGO
 	print("--- TURNO DO INIMIGO COMEÇOU ---")
 	
-	# Pega todas as áreas do grupo 'inimigo' na cena
 	var areasInimigos = get_tree().get_nodes_in_group("inimigo")
 	
 	for area in areasInimigos:
+		# 1. Verifica se a área deixou de existir durante a pausa do await anterior
+		if not is_instance_valid(area):
+			continue
+			
 		var inimigo = area.get_parent()
 		
-		# Verifica se o inimigo ainda está vivo e tem a função de ataque
-		if is_instance_valid(inimigo) and inimigo.has_method("executarAcaoTurno"):
+		# 2. Verifica se o inimigo é válido e NÃO está na fila para ser deletado (is_queued_for_deletion)
+		if is_instance_valid(inimigo) and not inimigo.is_queued_for_deletion() and inimigo.has_method("executarAcaoTurno"):
 			inimigo.executarAcaoTurno()
 			
-			# Pausa dramática de 1 segundo para o jogador ver a animação de CADA orc agir
 			await get_tree().create_timer(1.0).timeout
-			# Após atacar o inimigo planeja na sua próximo turno
-			if inimigo.has_method("planejarProximoTurno"):
+			
+			# 3. Verifica de novo antes de planejar, caso ele morra instantaneamente por algum efeito futuro
+			if is_instance_valid(inimigo) and not inimigo.is_queued_for_deletion() and inimigo.has_method("planejarProximoTurno"):
 				inimigo.planejarProximoTurno()
 				
-	# Após todos os inimigos atacarem, passa a vez de volta para o jogador
 	iniciarTurnoJogador()
 
 func _on_carta_jogada_na_mesa(dados_da_carta: Dictionary) -> void:

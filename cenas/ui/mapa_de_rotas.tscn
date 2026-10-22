@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dnncndv7ytfvu"]
+
+[ext_resource type="Script" uid="uid://rbreoytd0e34" path="res://scripts/ui/mapa_de_rotas.gd" id="1_1og8y"]
+[ext_resource type="Texture2D" uid="uid://dx7ygp8bhyvon" path="res://sprites/mapa/mapa_1.jpg" id="1_e0wcw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0wcw"]
+bg_color = Color(0.9956773, 0.24296263, 0.22843465, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 1.0
+expand_margin_right = 2.0
+expand_margin_bottom = 1.0
+
+[node name="MapaDeRotas" type="Control" unique_id=26355640]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1og8y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2074796868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e0wcw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Rotas" type="Control" parent="." unique_id=1010198648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BotaoFase1" type="Button" parent="Rotas" unique_id=378653558]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 606.0
+offset_right = 712.0
+offset_bottom = 659.0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0wcw")
+text = "Floresta"
+
+[node name="BotaoFase2" type="Button" parent="Rotas" unique_id=2112944499]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 374.0
+offset_right = 732.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0wcw")
+text = "Vila"
+
+[node name="BotaoFase3" type="Button" parent="Rotas" unique_id=972264949]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 65.0
+offset_right = 728.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0wcw")
+text = "Castelo"

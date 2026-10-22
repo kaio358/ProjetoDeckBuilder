@@ -23,3 +23,15 @@ func mostrarDerrota() -> void:
 	textoFinal.text = "DERROTA...\nArthur caiu em combate."
 	textoFinal.add_theme_color_override("font_color", Color.CRIMSON)
 	get_tree().paused = true # <--- ISSO PAUSA TUDO
+
+
+# Função ao final da fase para avançar 
+func _on_botao_continuar_pressed() -> void:
+	get_tree().paused = false
+	
+	# Se ele acabou de passar da fase 1, libera a fase 2
+	if DadosJogador.faseDesbloqueada == 1:
+		DadosJogador.faseDesbloqueada = 2
+	
+	# Troca para a tela do Mapa 
+	get_tree().change_scene_to_file("res://cenas/ui/mao.tscn")

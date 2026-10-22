@@ -144,6 +144,14 @@ text = "VITÓRIA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BotaoContinuar" type="Button" parent="TelaFimDeJogo" unique_id=589319797]
+process_mode = 3
+offset_left = 705.0
+offset_top = 454.0
+offset_right = 776.0
+offset_bottom = 485.0
+text = "Avançar"
+
 [node name="CamadaFundo" type="CanvasLayer" parent="." unique_id=1555415550]
 layer = -1
 
@@ -157,3 +165,4 @@ expand_mode = 1
 stretch_mode = 6
 
 [connection signal="pressed" from="BattleUI/BotaoPassarTurno" to="GerenciadorTurno" method="passarTurno"]
+[connection signal="pressed" from="TelaFimDeJogo/BotaoContinuar" to="." method="_on_botao_continuar_pressed"]
