@@ -19,6 +19,7 @@ var cartas_na_mao: Array = []
 
 # tipo o que fazemos no JS : document.getElementById("botao").addEventListener("click", minhaFuncao)
 signal carta_jogada(dados_da_carta)
+
 # Adiciona uma nova carta à mão
 func adicionar_carta(dados_carta) -> void:
 	
@@ -46,8 +47,6 @@ func adicionar_carta(dados_carta) -> void:
 		push_error("ERRO [Mao]: Falha ao instanciar 'cena_carta'.")
 		return
 
-	
-
 	if nova_carta.has_method("configurar"):
 		nova_carta.configurar(dados_carta)
 
@@ -71,7 +70,6 @@ func descartar_mao() -> Array:
 	cartas_na_mao.clear()
 	
 	return dados_descartados
-
 
 func processar_jogada(carta_node: Node2D) -> void:
 	# Pega os dados que salvamos nela quando ela foi criada
@@ -115,9 +113,13 @@ func reorganizar_mao() -> void:
 
 		var posicao_alvo = Vector2(x, y)
 
-		carta.position = posicao_alvo
-		carta.rotation = rot_rad
-	
+
+		# A mão avisa a carta onde ficar e envia o tamanho atual dela (carta.scale)
+		if carta.has_method("configurarLeque"):
+			carta.configurarLeque(posicao_alvo, rot_rad, carta.scale)
+		else:
+			carta.position = posicao_alvo
+			carta.rotation = rot_rad
 	
 # Como a carta original pode ter qualquer tamanho, fazemos uma
 # conta para ela ficar com um tamanho padrão na mão.

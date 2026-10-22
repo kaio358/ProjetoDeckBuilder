@@ -4,11 +4,22 @@ class_name FasePadrao
 @onready var mao: Mao = $Mao
 
 
-# Called when the node enters the scene tree for the first time.
+@onready var telaFim: CanvasLayer = $TelaFimDeJogo
+@onready var textoFinal: Label = $TelaFimDeJogo/ColorRect/TextoFinal
+
 func _ready() -> void:
-	pass # Replace with function body.
+	telaFim.hide() # Garante que começa escondida
 
+# Funções que serão chamadas quando alguém morrer
+func mostrarVitoria() -> void:
+	print("PASSO 3: A FasePadrao recebeu o aviso de vitória!")
+	telaFim.show()
+	textoFinal.text = "VITÓRIA!\nO inimigo foi derrotado!"
+	textoFinal.add_theme_color_override("font_color", Color.GREEN_YELLOW)
+	get_tree().paused = true # <--- ISSO PAUSA TUDO (cartas, monstros, turnos)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func mostrarDerrota() -> void:
+	telaFim.show()
+	textoFinal.text = "DERROTA...\nArthur caiu em combate."
+	textoFinal.add_theme_color_override("font_color", Color.CRIMSON)
+	get_tree().paused = true # <--- ISSO PAUSA TUDO

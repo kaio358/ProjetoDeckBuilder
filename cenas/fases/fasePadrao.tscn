@@ -22,6 +22,14 @@ bg_color = Color(0.26666668, 0.8901961, 0.20392157, 1)
 [node name="FasePadrao" type="Node2D" unique_id=544651884]
 script = ExtResource("1_p2ek7")
 
+[node name="CenarioFundo" type="TextureRect" parent="." unique_id=1547979423]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1143408887]
 
 [node name="BotaoPassarTurno" type="Button" parent="BattleUI" unique_id=143548411]
@@ -125,5 +133,27 @@ cenaBaseMagia = ExtResource("7_eke0r")
 
 [node name="InimigoPadrao" parent="." unique_id=466760575 instance=ExtResource("8_leek5")]
 position = Vector2(522, 194)
+
+[node name="TelaFimDeJogo" type="CanvasLayer" parent="." unique_id=1936048821]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="TelaFimDeJogo" unique_id=1065175528]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7137255)
+
+[node name="TextoFinal" type="Label" parent="TelaFimDeJogo/ColorRect" unique_id=656612395]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 200.0
+offset_right = 561.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 80
+text = "VITÓRIA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="BattleUI/BotaoPassarTurno" to="GerenciadorTurno" method="passarTurno"]

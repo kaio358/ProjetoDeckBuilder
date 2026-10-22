@@ -73,7 +73,7 @@ func planejarProximoTurno() -> void:
 		
 	passoAtual = (passoAtual + 1) % padraoAcoes.size()
 
-# === FUNÇÃO QUE A CARTA DE ATAQUE VAI CHAMAR ===
+# Ao causar dano, essa função de ataque da carta
 func receberDano(dano: int) -> void:
 	var danoRestante = dano
 	
@@ -97,10 +97,14 @@ func receberDano(dano: int) -> void:
 		arteInimigo.modulate = Color(1, 0.3, 0.3)
 		await get_tree().create_timer(0.2).timeout
 		arteInimigo.modulate = Color(1, 1, 1)
-		
-		if vidaAtual <= 0:
-			morrer()
-
+	
+	if vidaAtual <= 0:
+		# Em vez de só sumir em silêncio, ele avisa a cena principal
+		print("PASSO 1: Inimigo chegou a zero de vida.")
+		print("PASSO 2: A cena principal atual é: ", get_tree().current_scene.name)
+		get_tree().current_scene.mostrarVitoria()
+		queue_free()
+	
 func executarAcaoTurno() -> void:
 	if displayIntencao != null:
 		displayIntencao.hide()
@@ -123,7 +127,3 @@ func _onAnimacaoTerminou() -> void:
 	# Se ele terminou de atacar, volta a ficar parado
 	if arteInimigo.animation == "atacando":
 		arteInimigo.play("idle")
-
-func morrer() -> void:
-	print(name, " foi derrotado!")
-	queue_free()

@@ -74,6 +74,14 @@ func receberDano(dano: int) -> void:
 	# Grita de novo para a tela se atualizar após tomar uma pancada.
 	interfaceAlterada.emit(vidaAtual, vidaMaxima, armaduraAtual)
 	
+	if vidaAtual <= 0:
+		vidaAtual = 0
+		interfaceAlterada.emit(vidaAtual, vidaMaxima, armaduraAtual)
+		
+		# Procura a cena principal atual do jogo e chama a derrota
+		get_tree().current_scene.mostrarDerrota()
+	
+	
 func curar(quantidade: int) -> void:
 	vidaAtual += quantidade
 	if vidaAtual > vidaMaxima:

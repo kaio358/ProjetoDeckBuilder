@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bsj4822qhy5dl"]
+
+[ext_resource type="PackedScene" uid="uid://cl2bvxjcj1vxh" path="res://cenas/fases/fasePadrao.tscn" id="1_yeuq0"]
+[ext_resource type="Texture2D" uid="uid://bdcuup5wgkuqw" path="res://sprites/cenarios/floresta_1.jpg" id="2_aumj7"]
+
+[node name="Fase1" unique_id=544651884 instance=ExtResource("1_yeuq0")]
+
+[node name="CenarioFundo" parent="." index="0" unique_id=1547979423]
+texture = ExtResource("2_aumj7")
