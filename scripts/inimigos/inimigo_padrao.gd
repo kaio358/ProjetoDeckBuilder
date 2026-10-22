@@ -2,12 +2,17 @@ extends Node2D
 class_name InimigoPadrao
 
 @export var vidaMaxima: int = 20
+@export var nomeInimigo: String = "Inimigo Genérico"
+@export var dano_base: int = 5
+@export var defesa_base: int = 5
+
 var vidaAtual: int
 var armaduraAtual: int = 0
 var proximaAcao: String = "ataque" 
 var valorAcao: int = 0
 # Array que define a ordem exata do que o inimigo vai fazer
 @export var padraoAcoes: Array[String] = ["ataque", "espera", "defesa", "espera", "ataque"]
+@export var passoInicial: int = 0
 var passoAtual: int = 0
 
 # Referências aos nós filhos
@@ -20,6 +25,7 @@ var passoAtual: int = 0
 
 func _ready() -> void:
 	vidaAtual = vidaMaxima
+	passoAtual = passoInicial
 	atualizarInterfaceVida()
 	
 	# Só para ter certeza que o escudo não aparece 
@@ -57,11 +63,11 @@ func planejarProximoTurno() -> void:
 	match acaoDaVez:
 		"ataque":
 			proximaAcao = "ataque"
-			valorAcao = 5
+			valorAcao = dano_base
 			displayIntencao.text = "⚔️ Atacará: " + str(valorAcao)
 		"defesa":
 			proximaAcao = "defesa"
-			valorAcao = 5
+			valorAcao = defesa_base
 			displayIntencao.text = "🛡️ Defenderá: " + str(valorAcao)
 		"espera":
 			proximaAcao = "espera"
@@ -99,11 +105,24 @@ func receberDano(dano: int) -> void:
 		arteInimigo.modulate = Color(1, 1, 1)
 	
 	if vidaAtual <= 0:
-		# Em vez de só sumir em silêncio, ele avisa a cena principal
-		print("PASSO 1: Inimigo chegou a zero de vida.")
-		print("PASSO 2: A cena principal atual é: ", get_tree().current_scene.name)
-		get_tree().current_scene.mostrarVitoria()
+		# Remove do grupo para cartas e turnos ignorarem este orc imediatamente
+		remove_from_group("inimigo")
+		if displayIntencao != null:
+			displayIntencao.hide()
+		
+		# Toca a morte e pausa o código até ela terminar
+		arteInimigo.play("morrendo")
+		await arteInimigo.animation_finished 
+		
+		verificarVitoria()
 		queue_free()
+
+func verificarVitoria() -> void:
+	# Como o queue_free() demora 1 frame, o inimigo atual ainda está no grupo.
+	# Se ele for o ÚLTIMO, o tamanho do grupo será 1.
+	var inimigos_vivos = get_tree().get_nodes_in_group("inimigo").size()
+	if inimigos_vivos <= 1:
+		get_tree().current_scene.mostrarVitoria()
 	
 func executarAcaoTurno() -> void:
 	if displayIntencao != null:

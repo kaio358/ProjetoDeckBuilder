@@ -25,11 +25,7 @@ func _iniciarCombate() -> void:
 		baralhoVisual.configurar(deckJogador)
 		
 	# O Gerenciador passa a escutar quando a mão "jogar" uma carta
-	# maoJogador.connect(...) É o exato equivalente ao addEventListener
-	# "carta_jogada", ...) nome do evento (o grito) que queremos escutar
-	# Callable é só a forma chique do Godot 4 dizer "Chame esta função"
 	if not maoJogador.is_connected("carta_jogada", Callable(self, "_on_carta_jogada_na_mesa")):
-		# Se não estiver conectado, faz favor de conectar
 		maoJogador.connect("carta_jogada", Callable(self, "_on_carta_jogada_na_mesa"))
 		
 	iniciarTurnoJogador()
@@ -37,11 +33,10 @@ func _iniciarCombate() -> void:
 func iniciarTurnoJogador() -> void:
 	faseAtual = FasesDoTurno.INICIO_TURNO
 	
-	# Zera armadura do jogadors
+	# Zera armadura do jogador
 	DadosJogador.iniciarNovoTurno()
 	
 	# Puxa cartas ATÉ completar 5 na mão. 
-	# Se faltam 4 no baralho, ele puxa as 4, embaralha o cemitério, e puxa mais 1.
 	while maoJogador.cartas_na_mao.size() < 5:
 		var novaCarta = deckJogador.comprar_carta()
 		if novaCarta.is_empty():
@@ -81,7 +76,7 @@ func iniciarTurnoInimigo() -> void:
 		if is_instance_valid(inimigo) and inimigo.has_method("executarAcaoTurno"):
 			inimigo.executarAcaoTurno()
 			
-			# Pausa dramática de 1 segundo para o jogador ver a animação
+			# Pausa dramática de 1 segundo para o jogador ver a animação de CADA orc agir
 			await get_tree().create_timer(1.0).timeout
 			# Após atacar o inimigo planeja na sua próximo turno
 			if inimigo.has_method("planejarProximoTurno"):
@@ -90,12 +85,6 @@ func iniciarTurnoInimigo() -> void:
 	# Após todos os inimigos atacarem, passa a vez de volta para o jogador
 	iniciarTurnoJogador()
 
-
-
-# demais funções para auxiliar 
-
 func _on_carta_jogada_na_mesa(dados_da_carta: Dictionary) -> void:
 	print("Carta jogada! Enviando para o cemitério: ", dados_da_carta["nome"])
-	
-	# Envia diretamente para a pilha de descarte do Deck
 	deckJogador.enviar_para_descarte(dados_da_carta)

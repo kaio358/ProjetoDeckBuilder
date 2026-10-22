@@ -58,8 +58,8 @@ func _inicializar_deck() -> void:
 			"subtipo": "soma",
 			"nome": "Soma " + str(i + 1),
 			"custo": 2,
-			"texto": "Soma +5 à próxima carta",
-			"poder": 5,
+			"texto": "Soma +15 à próxima carta",
+			"poder": 15,
 			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
 		cartas.append(cartaMagia)

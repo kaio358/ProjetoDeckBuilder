@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://b3n0rufpggixc" path="res://scripts/ui/interface_mana.gd" id="4_vf7on"]
 [ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="6_ufo4b"]
 [ext_resource type="PackedScene" uid="uid://b23n620hxyt7" path="res://cenas/cartas/cardPadraoMagia.tscn" id="7_eke0r"]
-[ext_resource type="PackedScene" uid="uid://dlvpr4aiv5846" path="res://cenas/inimigos/inimigo_padrao.tscn" id="8_leek5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4gaf"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -21,14 +20,6 @@ bg_color = Color(0.26666668, 0.8901961, 0.20392157, 1)
 
 [node name="FasePadrao" type="Node2D" unique_id=544651884]
 script = ExtResource("1_p2ek7")
-
-[node name="CenarioFundo" type="TextureRect" parent="." unique_id=1547979423]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=1143408887]
 
@@ -131,9 +122,6 @@ position = Vector2(628, 581)
 cenaBaseAtaque = ExtResource("3_p2ek7")
 cenaBaseMagia = ExtResource("7_eke0r")
 
-[node name="InimigoPadrao" parent="." unique_id=466760575 instance=ExtResource("8_leek5")]
-position = Vector2(522, 194)
-
 [node name="TelaFimDeJogo" type="CanvasLayer" parent="." unique_id=1936048821]
 process_mode = 3
 
@@ -155,5 +143,17 @@ theme_override_font_sizes/font_size = 80
 text = "VITÓRIA"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CamadaFundo" type="CanvasLayer" parent="." unique_id=1555415550]
+layer = -1
+
+[node name="CenarioFundo" type="TextureRect" parent="CamadaFundo" unique_id=1547979423]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
 
 [connection signal="pressed" from="BattleUI/BotaoPassarTurno" to="GerenciadorTurno" method="passarTurno"]

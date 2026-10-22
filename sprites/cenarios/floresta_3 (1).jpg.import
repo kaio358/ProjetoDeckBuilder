@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdcuup5wgkuqw"
-path="res://.godot/imported/floresta_1.jpg-244a2adbb33e6abc95210e0a6f284830.ctex"
+uid="uid://b4akhum5y8p0"
+path="res://.godot/imported/floresta_3 (1).jpg-ca4e9bfb5d85db6fe3aeebfc4d1b7f47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/cenarios/floresta_1.jpg"
-dest_files=["res://.godot/imported/floresta_1.jpg-244a2adbb33e6abc95210e0a6f284830.ctex"]
+source_file="res://sprites/cenarios/floresta_3 (1).jpg"
+dest_files=["res://.godot/imported/floresta_3 (1).jpg-ca4e9bfb5d85db6fe3aeebfc4d1b7f47.ctex"]
 
 [params]
 

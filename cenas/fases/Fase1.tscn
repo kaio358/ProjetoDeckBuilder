@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://bsj4822qhy5dl"]
 
 [ext_resource type="PackedScene" uid="uid://cl2bvxjcj1vxh" path="res://cenas/fases/fasePadrao.tscn" id="1_yeuq0"]
-[ext_resource type="Texture2D" uid="uid://bdcuup5wgkuqw" path="res://sprites/cenarios/floresta_1.jpg" id="2_aumj7"]
+[ext_resource type="Texture2D" uid="uid://b4akhum5y8p0" path="res://sprites/cenarios/floresta_3 (1).jpg" id="2_aumj7"]
+[ext_resource type="PackedScene" uid="uid://dcg2wtg6txy2r" path="res://cenas/inimigos/inimigo_orc.tscn" id="3_enkx2"]
 
 [node name="Fase1" unique_id=544651884 instance=ExtResource("1_yeuq0")]
 
-[node name="CenarioFundo" parent="." index="0" unique_id=1547979423]
+[node name="TelaFimDeJogo" parent="." index="4" unique_id=1936048821]
+visible = false
+
+[node name="TextoFinal" parent="TelaFimDeJogo/ColorRect" parent_id_path=PackedInt32Array(1065175528) index="0" unique_id=656612395]
+offset_left = 295.0
+offset_top = 197.0
+offset_right = 606.0
+offset_bottom = 307.0
+
+[node name="InimigoOrc" parent="." index="5" unique_id=757299910 instance=ExtResource("3_enkx2")]
+position = Vector2(744, 276)
+
+[node name="InimigoOrc2" parent="." index="6" unique_id=466760575 instance=ExtResource("3_enkx2")]
+position = Vector2(290, 277)
+padraoAcoes = Array[String](["espera", "ataque", "espera", "defesa", "espera", "ataque"])
+
+[node name="InimigoOrc3" parent="." index="7" unique_id=1451205415 instance=ExtResource("3_enkx2")]
+position = Vector2(1104, 288)
+padraoAcoes = Array[String](["espera", "ataque", "espera", "defesa", "espera", "ataque"])
+
+[node name="CenarioFundo" parent="CamadaFundo" parent_id_path=PackedInt32Array(1555415550) index="0" unique_id=1547979423]
+texture_filter = 1
 texture = ExtResource("2_aumj7")
