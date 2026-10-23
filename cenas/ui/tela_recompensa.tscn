@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b2h2pcs3tuo3n"]
+
+[ext_resource type="Script" uid="uid://dmwy7n4t4ytag" path="res://scripts/ui/tela_recompensa.gd" id="1_mhf20"]
+
+[node name="TelaRecompensa" type="Control" unique_id=205908897]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mhf20")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=28075390]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Label" type="Label" parent="." unique_id=1948091143]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 150.0
+offset_right = 967.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 34
+text = "Escolha uma carta para o seu baralho"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1674402703]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 680.0
+offset_bottom = 400.0

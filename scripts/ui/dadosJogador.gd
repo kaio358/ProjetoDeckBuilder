@@ -12,6 +12,9 @@ signal manaAlterada(manaAtual, manaMaxima)
 var vidaAtual: int
 var armaduraAtual: int = 0
 
+# Armazenar o baralho do individuo
+var baralhoGlobal: Array[Dictionary] = []
+
 # Combos das cartas ( combos das ruas haha)
 var bonusSoma: int = 0
 var bonusMultiplicador: int = 1
@@ -30,6 +33,73 @@ func _ready() -> void:
 	
 	manaAtual = manaMaxima
 	
+	_inicializar_deck()
+
+
+# Inicializa o deck com cartas de teste variadas (mantemos igual)
+func _inicializar_deck() -> void:
+	for i in range(4):
+		# Mais tarde coloco a parte de imagem, vai dar trabalho
+		var cartaAtaque = {
+			"tipo": "ataque",
+			"nome": "Ataque " + str(i + 1),
+			"custo": 1,
+			"texto": "Causa dano direto",
+			"dano": 5,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		baralhoGlobal.append(cartaAtaque)
+	# Defesa
+	for i in range(4):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "defesa",
+			"nome": "Defesa " + str(i + 1),
+			"custo": 1,
+			"texto": "Defesa +10",
+			"poder": 10,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		baralhoGlobal.append(cartaMagia)
+	#Cura
+	for i in range(2):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "cura",
+			"nome": "Poção " + str(i + 1),
+			"custo": 2,
+			"texto": "Cura +10",
+			"poder": 10,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		baralhoGlobal.append(cartaMagia)
+		
+	#Soma
+	for i in range(2):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "soma",
+			"nome": "Soma " + str(i + 1),
+			"custo": 2,
+			"texto": "Soma +15 à próxima carta",
+			"poder": 15,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		baralhoGlobal.append(cartaMagia)
+		
+	# Multiplicação 
+	for i in range(2):
+		var cartaMagia = {
+			"tipo": "magia",
+			"subtipo": "multiplicacao",
+			"nome": "Multiplicação " + str(i + 1),
+			"custo": 2,
+			"texto": "Multiplica (X2) a próxima carta",
+			"poder": 2,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}
+		baralhoGlobal.append(cartaMagia)
+
 # Reseta a vida para o início de uma nova campanha/run
 func resetarParaNovaRun() -> void:
 	vidaAtual = vidaMaxima

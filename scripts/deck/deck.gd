@@ -9,80 +9,17 @@ var pilhaCompra: Array[Dictionary] = []
 var pilhaDescarte: Array[Dictionary] = []
 
 func _ready() -> void:
-	_inicializar_deck()
+	cartas = DadosJogador.baralhoGlobal.duplicate(true)
 	# Prepara as pilhas logo que o deck é criado na cena
 	_preparar_batalha()
 
-# Inicializa o deck com cartas de teste variadas (mantemos igual)
-func _inicializar_deck() -> void:
-	for i in range(4):
-		# Mais tarde coloco a parte de imagem, vai dar trabalho
-		var cartaAtaque = {
-			"tipo": "ataque",
-			"nome": "Ataque " + str(i + 1),
-			"custo": 1,
-			"texto": "Causa dano direto",
-			"dano": 5,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
-		}
-		cartas.append(cartaAtaque)
-	# Defesa
-	for i in range(4):
-		var cartaMagia = {
-			"tipo": "magia",
-			"subtipo": "defesa",
-			"nome": "Defesa " + str(i + 1),
-			"custo": 1,
-			"texto": "Defesa +10",
-			"poder": 10,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
-		}
-		cartas.append(cartaMagia)
-	#Cura
-	for i in range(2):
-		var cartaMagia = {
-			"tipo": "magia",
-			"subtipo": "cura",
-			"nome": "Poção " + str(i + 1),
-			"custo": 2,
-			"texto": "Cura +10",
-			"poder": 10,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
-		}
-		cartas.append(cartaMagia)
-		
-	#Soma
-	for i in range(2):
-		var cartaMagia = {
-			"tipo": "magia",
-			"subtipo": "soma",
-			"nome": "Soma " + str(i + 1),
-			"custo": 2,
-			"texto": "Soma +15 à próxima carta",
-			"poder": 15,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
-		}
-		cartas.append(cartaMagia)
-		
-	# Multiplicação 
-	for i in range(2):
-		var cartaMagia = {
-			"tipo": "magia",
-			"subtipo": "multiplicacao",
-			"nome": "Multiplicação " + str(i + 1),
-			"custo": 2,
-			"texto": "Multiplica (X2) a próxima carta",
-			"poder": 2,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
-		}
-		cartas.append(cartaMagia)
 
 # --- NOVA LÓGICA DE COMBATE ABAIXO ---
 
 # Copia as cartas originais para a pilha de compra e embaralha
 func _preparar_batalha() -> void:
 	# Copia as cartas da coleção para começar a batalha.
-	pilhaCompra = cartas.duplicate(true) # True para copiar tudo!! Não só a estrutura 
+	pilhaCompra =  DadosJogador.baralhoGlobal.duplicate(true) # True para copiar tudo!! Não só a estrutura 
 	pilhaCompra.shuffle()
 	pilhaDescarte.clear()
 
