@@ -9,7 +9,7 @@ const CartaMagia = preload("res://cenas/cartas/cardPadraoMagia.tscn")
 func _ready() -> void:
 	var piscinaDeCartas: Array[Dictionary] = []
 	
-	# Percorre todos os tópicos (ataque, defesa, magia_soma) e junta tudo numa lista só
+	# Percorre todos os tópicos e junta tudo numa lista só
 	for categoria in BancoDeCartas.catalogo.values():
 		piscinaDeCartas.append_array(categoria)
 		
@@ -35,12 +35,29 @@ func criarBotaoCarta(dadosDaCarta: Dictionary) -> void:
 	botao.add_child(cenaVisual)
 	containerCartas.add_child(botao)
 	
+	# ajustando o tamanho
+	var escalaNormal = Vector2(0.3, 0.3)
+	# O tamanho quando o mouse passa por cima (um pouco maior)
+	var escalaHover = Vector2(0.35, 0.35)
+	
+	cenaVisual.transformarEmVitrine(escalaNormal.x)
+	
 	# Chama a função existente na sua carta que preenche nomes, custos e imagens
 	cenaVisual.configurar(dadosDaCarta)
 	
+	botao.mouse_entered.connect(func():
+		var tween = create_tween()
+		tween.tween_property(cenaVisual, "scale", escalaHover, 0.15)
+	)
 	
+	botao.mouse_exited.connect(func():
+		var tween = create_tween()
+		tween.tween_property(cenaVisual, "scale", escalaNormal, 0.15)
+	)
 	
 	botao.pressed.connect(func(): _on_carta_escolhida(dadosDaCarta))
+	
+	
 
 func _on_carta_escolhida(carta: Dictionary) -> void:
 	# Ajuste 'baralhoGlobal' para o nome real da variável do seu baralho no Autoload

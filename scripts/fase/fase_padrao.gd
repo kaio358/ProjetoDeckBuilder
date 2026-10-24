@@ -35,4 +35,4 @@ func _on_botao_continuar_pressed() -> void:
 		DadosJogador.faseDesbloqueada = 2
 	
 	# Troca para a tela do Mapa 
-	get_tree().change_scene_to_file("res://cenas/ui/mapa_de_rotas.tscn")
+	get_tree().change_scene_to_file("res://cenas/ui/tela_recompensa.tscn")

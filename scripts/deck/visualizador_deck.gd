@@ -1,116 +1,71 @@
-extends Node2D
+extends CanvasLayer
 class_name VisualizadorDeck
 
-@export_category("Configurações da Carta")
-@export var larguraCarta: float = 130.0
-@export var alturaCarta: float = 182.0
-
 @export_category("Configurações do Layout")
-@export var espacamentoX: float = 15.0
-@export var espacamentoY: float = 20.0
+@export var escalaVitrine: float = 0.5
+@export var espacamentoX: float = 160.0
+@export var espacamentoY: float = 230.0
 @export var margem: float = 50.0
 
 @export_category("Cenas Base das Cartas")
-# Em vez de uma só, agora recebemos os "templates" de cada tipo
 @export var cenaBaseAtaque: PackedScene
 @export var cenaBaseMagia: PackedScene
 
-var deck: Deck
-
 @onready var cartas: Node2D = $Cartas
 
-# Recebe o deck que o jogador está usando e atualiza as cartas
-# que vão aparecer na tela usando os dados que estão dentro dele.
-func configurar(deckDoJogador: Deck) -> void:
-	deck = deckDoJogador
+func _ready() -> void:
+	# O visualizador nasce invisível
+	hide()
+
+# Chame esta função quando o jogador clicar no ícone do deck no mapa
+func abrirVisualizador() -> void:
+	show()
 	atualizarVisual()
 
-# Apaga as cartas que já estão na tela e cria novamente todas
-# as cartas que estão atualmente dentro do deck.
+func fecharVisualizador() -> void:
+	hide()
+
 func atualizarVisual() -> void:
-	if deck == null:
-		return
-	
+	# Limpa a tela antes de desenhar
 	for cartaVisual in cartas.get_children():
 		cartaVisual.queue_free()
 	
-	var tamanhoTela = get_viewport_rect().size
+	# Puxa o baralho diretamente do Autoload, sem depender de batalhas
+	var baralho = DadosJogador.baralhoGlobal
+	if baralho.is_empty():
+		return
+		
+	var tamanhoTela = get_viewport().get_visible_rect().size
 	var larguraDisponivel = tamanhoTela.x - (margem * 2.0)
 	
-	# Descobre quantas cartas conseguem ficar na mesma linha
-	# antes de precisar começar uma nova linha.
-	var cartasPorLinha = int(
-		(larguraDisponivel + espacamentoX) /
-		(larguraCarta + espacamentoX)
-	)
-	
+	var cartasPorLinha = int((larguraDisponivel + espacamentoX) / espacamentoX)
 	cartasPorLinha = max(cartasPorLinha, 1)
 	
-	for i in range(deck.cartas.size()):
-		var dadosCarta = deck.cartas[i]
+	for i in range(baralho.size()):
+		var dadosCarta = baralho[i]
+		var tipoCarta = dadosCarta.get("tipo", "ataque")
 		
-		# --- NOVIDADE: Verifica o tipo para renderizar a cena certa ---
-		var tipoCarta = dadosCarta.get("tipo", "ataque") # Se não vier nada, assume que é ataque
-		var cenaCorreta: PackedScene
+		var cenaCorreta = cenaBaseAtaque if tipoCarta == "ataque" else cenaBaseMagia
 		
-		# O match do Godot atua como o switch do JS
-		match tipoCarta:
-			"ataque":
-				cenaCorreta = cenaBaseAtaque
-			"magia":
-				cenaCorreta = cenaBaseMagia
-			_:
-				# Se vier um tipo bizarro, joga pra ataque pra não quebrar
-				cenaCorreta = cenaBaseAtaque
-				
-		# Trava de segurança: impede que o jogo crashe se o professor ou nós acabe de esquecer de plugar a cena
 		if cenaCorreta == null:
-			push_error("Erro de instanciamento: A cena base do tipo '" + tipoCarta + "' não foi vinculada no Inspetor!")
-			return
+			push_error("Erro: Cena base não vinculada!")
+			continue
 			
 		var novaCarta = cenaCorreta.instantiate()
-		
 		cartas.add_child(novaCarta)
 		
-		if novaCarta.has_method("configurar"):
-			novaCarta.configurar(dadosCarta)
+		# A ordem correta: instanciar -> configurar -> transformar
+		novaCarta.configurar(dadosCarta)
+		novaCarta.transformarEmVitrine(escalaVitrine)
 		
-		redimensionarCarta(novaCarta)
-		
-		# O resto da conta serve para descobrir em qual coluna
-		# e em qual linha a carta atual deve ficar.
 		var coluna = i % cartasPorLinha
 		var linha = i / cartasPorLinha
 		
-		var posicaoX = margem + larguraCarta / 2.0
-		posicaoX += coluna * (larguraCarta + espacamentoX)
-		
-		var posicaoY = margem + alturaCarta / 2.0
-		posicaoY += linha * (alturaCarta + espacamentoY)
+		var posicaoX = margem + (coluna * espacamentoX)
+		var posicaoY = margem + (linha * espacamentoY)
 		
 		novaCarta.position = Vector2(posicaoX, posicaoY)
 
-# Como a carta original pode ter qualquer tamanho, fazemos uma
-# conta para ela ficar com um tamanho padrão dentro do visualizador.
-func redimensionarCarta(carta: Node2D) -> void:
-	var sprites = carta.find_children("*", "Sprite2D", true, false)
-	
-	if sprites.is_empty():
-		push_warning("A carta não possui nenhum Sprite2D.")
-		return
-	
-	var spriteBase: Sprite2D = sprites[0]
-	
-	if spriteBase.texture == null:
-		push_warning("O Sprite2D da carta não possui textura.")
-		return
-	
-	var tamanhoOriginal = spriteBase.texture.get_size()
-	
-	if tamanhoOriginal.x <= 0 or tamanhoOriginal.y <= 0:
-		return
-	
-	var escalaX = larguraCarta / tamanhoOriginal.x
-	var escalaY = alturaCarta / tamanhoOriginal.y
-	
-	carta.scale = Vector2(escalaX, escalaY)
+
+func _on_botao_fechar_pressed() -> void:
+	fecharVisualizador()

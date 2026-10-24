@@ -31,7 +31,8 @@ text = "Escolha uma carta para o seu baralho"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1674402703]
 layout_mode = 0
-offset_left = 640.0
-offset_top = 360.0
-offset_right = 680.0
-offset_bottom = 400.0
+offset_left = 350.0
+offset_top = 362.0
+offset_right = 390.0
+offset_bottom = 402.0
+theme_override_constants/separation = 80

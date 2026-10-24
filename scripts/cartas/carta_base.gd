@@ -197,6 +197,22 @@ func configurar(dadosCarta: Dictionary) -> void:
 func _configurarExtra(_dadosCarta: Dictionary) -> void:
 	pass
 
+
+# Desliga tudoooooooo, para evitar dor de cabeça
+func transformarEmVitrine(novaEscala: float = 0.5) -> void:
+	# 1. Desliga o _process (parando as animações de levitar e seguir o mouse)
+	set_process(false)
+	
+	# 2. Desliga a Area2D para a carta ignorar o mouse completamente
+	areaColisao.input_pickable = false
+	
+	# 3. Ajusta o tamanho (0.5 = metade do tamanho original)
+	scale = Vector2(novaEscala, novaEscala)
+	
+	# 4. Centraliza a carta no meio do botão (metade do Vector2(150, 220))
+	position = Vector2(75, 110) 
+	rotation = 0.0
+
 # A função de poder da carta! Cada filho vai implementar a sua
 func executarEfeito(alvo: Node2D) -> void:
 	push_warning("Aviso: executando carta genérica no alvo: ", alvo.name)
