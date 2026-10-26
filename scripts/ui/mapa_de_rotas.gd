@@ -28,3 +28,7 @@ func _on_botao_fase_1_pressed() -> void:
 func _on_botao_fogueira_pressed() -> void:
 	print("Carregando cena da Fogueira (Ainda não criada)")
 	# get_tree().change_scene_to_file("res://caminho/para/Fogueira.tscn")
+
+
+func _on_botao_ver_deck_pressed() -> void:
+	$VisualizadorDeck.abrirVisualizador()

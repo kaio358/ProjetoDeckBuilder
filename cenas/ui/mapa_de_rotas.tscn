@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rbreoytd0e34" path="res://scripts/ui/mapa_de_rotas.gd" id="1_1og8y"]
 [ext_resource type="Texture2D" uid="uid://dx7ygp8bhyvon" path="res://sprites/mapa/mapa_1.jpg" id="1_e0wcw"]
+[ext_resource type="PackedScene" uid="uid://bjmbn4v50fotj" path="res://cenas/deck/visualizadorDeck.tscn" id="3_dp6f3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0wcw"]
 bg_color = Color(0.9956773, 0.24296263, 0.22843465, 1)
@@ -17,6 +18,21 @@ expand_margin_left = 2.0
 expand_margin_top = 1.0
 expand_margin_right = 2.0
 expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n77a"]
+bg_color = Color(0.24019423, 0.6308376, 0.91198206, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [node name="MapaDeRotas" type="Control" unique_id=26355640]
 layout_mode = 3
@@ -75,3 +91,18 @@ offset_bottom = 118.0
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_e0wcw")
 text = "Castelo"
+
+[node name="BotaoVerDeck" type="Button" parent="." unique_id=951766478]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 636.0
+offset_right = 99.0
+offset_bottom = 667.0
+theme_override_constants/icon_max_width = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_7n77a")
+text = "Ver deck"
+
+[node name="VisualizadorDeck" parent="." unique_id=82092420 instance=ExtResource("3_dp6f3")]
+
+[connection signal="pressed" from="Rotas/BotaoFase1" to="." method="_on_botao_fase_1_pressed"]
+[connection signal="pressed" from="BotaoVerDeck" to="." method="_on_botao_ver_deck_pressed"]
