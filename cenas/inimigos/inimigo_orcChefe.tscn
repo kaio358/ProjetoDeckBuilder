@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://bx8wy0uyeftnt"]
+
+[ext_resource type="PackedScene" uid="uid://dlvpr4aiv5846" path="res://cenas/inimigos/inimigo_padrao.tscn" id="1_l0qts"]
+[ext_resource type="Script" uid="uid://vhcthcacgwkl" path="res://scripts/inimigos/inimigo_orc_chefe.gd" id="2_0uyi4"]
+[ext_resource type="Texture2D" uid="uid://cco507miu3ebc" path="res://sprites/inimigos/orcChefe/orc3_attack_without_shadow.png" id="2_e53w4"]
+[ext_resource type="Texture2D" uid="uid://bdrnr1smjtwbj" path="res://sprites/inimigos/orcChefe/orc3_idle_without_shadow.png" id="3_0uyi4"]
+[ext_resource type="Texture2D" uid="uid://vslxw0smoifm" path="res://sprites/inimigos/orcChefe/orc3_death_without_shadow.png" id="5_pasc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pasc0"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3dyo"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yydwt"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtvsu"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbava"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj71t"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikwib"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egrl4"]
+atlas = ExtResource("2_e53w4")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdfpp"]
+atlas = ExtResource("3_0uyi4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvcrr"]
+atlas = ExtResource("3_0uyi4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcbwo"]
+atlas = ExtResource("3_0uyi4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n0ml"]
+atlas = ExtResource("3_0uyi4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1768c"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaqrm"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3nds"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n42y6"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxs2w"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tavb0"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fh6f"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8thxm"]
+atlas = ExtResource("5_pasc0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbfwr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pasc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3dyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yydwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtvsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbava")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj71t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikwib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egrl4")
+}],
+"loop": 0,
+"name": &"atacando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdfpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvcrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcbwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n0ml")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1768c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaqrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3nds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n42y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxs2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tavb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fh6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8thxm")
+}],
+"loop": 0,
+"name": &"morrendo",
+"speed": 5.0
+}]
+
+[node name="InimigoPadrao" unique_id=466760575 instance=ExtResource("1_l0qts")]
+script = ExtResource("2_0uyi4")
+vidaMaxima = 120
+
+[node name="ArteInimigo" parent="." index="0" unique_id=694541629]
+sprite_frames = SubResource("SpriteFrames_hbfwr")
+animation = &"morrendo"
+autoplay = "idle"

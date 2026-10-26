@@ -105,4 +105,5 @@ text = "Ver deck"
 [node name="VisualizadorDeck" parent="." unique_id=82092420 instance=ExtResource("3_dp6f3")]
 
 [connection signal="pressed" from="Rotas/BotaoFase1" to="." method="_on_botao_fase_1_pressed"]
+[connection signal="pressed" from="Rotas/BotaoFase2" to="." method="_on_botao_fase_2_pressed"]
 [connection signal="pressed" from="BotaoVerDeck" to="." method="_on_botao_ver_deck_pressed"]

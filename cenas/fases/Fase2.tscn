@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djb6e53d5ie2q"]
+
+[ext_resource type="PackedScene" uid="uid://cl2bvxjcj1vxh" path="res://cenas/fases/fasePadrao.tscn" id="1_fb4v4"]
+[ext_resource type="Texture2D" uid="uid://cmojpbmlcjyx0" path="res://sprites/cenarios/vila_destruida_2.jpg" id="2_10chd"]
+[ext_resource type="PackedScene" uid="uid://bx8wy0uyeftnt" path="res://cenas/inimigos/inimigo_orcChefe.tscn" id="2_pwgpc"]
+
+[node name="Fase2" unique_id=544651884 instance=ExtResource("1_fb4v4")]
+
+[node name="TelaFimDeJogo" parent="." index="4" unique_id=1936048821]
+visible = false
+
+[node name="CenarioFundo" parent="CamadaFundo" parent_id_path=PackedInt32Array(1555415550) index="0" unique_id=1547979423]
+texture = ExtResource("2_10chd")
+
+[node name="InimigoPadrao" parent="." index="6" unique_id=466760575 instance=ExtResource("2_pwgpc")]
+position = Vector2(739, 277)
+nomeInimigo = "mini boss"
+dano_base = 10
+defesa_base = 20
+padraoAcoes = Array[String](["ataque", "defesa", "espera", "ataque_forte", "espera"])
