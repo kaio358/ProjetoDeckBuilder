@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjetoDeckBuilder"
-run/main_scene="uid://dobskhlfvhduh"
+run/main_scene="uid://b7e0b7ukrnn4y"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c4ncrmkxm6m8e"]
+
+[ext_resource type="PackedScene" uid="uid://cl2bvxjcj1vxh" path="res://cenas/fases/fasePadrao.tscn" id="1_11816"]
+[ext_resource type="PackedScene" uid="uid://dknmsmdy5055c" path="res://cenas/inimigos/inimigo_gato.tscn" id="2_1q5up"]
+[ext_resource type="Script" uid="uid://crum1hki8d0j3" path="res://scripts/inimigos/tutorial.gd" id="2_tb23h"]
+
+[node name="Tutorial" unique_id=544651884 instance=ExtResource("1_11816")]
+script = ExtResource("2_tb23h")
+
+[node name="TelaFimDeJogo" parent="." index="4" unique_id=1936048821]
+visible = false
+
+[node name="InimigoPadrao" parent="." index="6" unique_id=466760575 instance=ExtResource("2_1q5up")]
+position = Vector2(619, 186)
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="7" unique_id=447852306]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1212.0
+offset_top = 206.0
+offset_right = 1251.0
+offset_bottom = 229.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer" index="0" unique_id=717132343]
+layout_mode = 2
+text = "1. Arraste as cartas para o centro para as usar.
+2. O ícone + o texto abaixo do inimigo indica a sua próxima ação.
+3. O Mana (círculo azul) recarrega a cada turno."

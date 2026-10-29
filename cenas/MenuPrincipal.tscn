@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://b7e0b7ukrnn4y"]
+
+[ext_resource type="Texture2D" uid="uid://ylqisk1tffhr" path="res://sprites/tela_fundo/cenarioGenerico2 (1).jpg" id="1_6jx2a"]
+[ext_resource type="Script" uid="uid://bevs3r1ewy4vq" path="res://scripts/ui/menu_principal.gd" id="1_qerp7"]
+[ext_resource type="FontFile" uid="uid://d3tnm013y1ltk" path="res://recursos/fonts/Press_Start_2P/PressStart2P-Regular.ttf" id="2_r2p0k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnuy3"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.39607844, 0.2627451, 0.12941177, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plspl"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.60214305, 0.4100006, 0.21978748, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ypq5"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2969628, 0.19245869, 0.08776588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ahrq"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.60214305, 0.4100006, 0.21978748, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf6fv"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2969628, 0.19245869, 0.08776588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1la8"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.60214305, 0.4100006, 0.21978748, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vju2w"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2969628, 0.19245869, 0.08776588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhesi"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.60214305, 0.4100006, 0.21978748, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qerp7"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2969628, 0.19245869, 0.08776588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="MenuPrincipal" type="Control" unique_id=1037771473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qerp7")
+
+[node name="Background" type="TextureRect" parent="." unique_id=450685883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6jx2a")
+expand_mode = 1
+
+[node name="FundoEscuro" type="ColorRect" parent="." unique_id=1466756065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="VBoxPrincipal" type="VBoxContainer" parent="." unique_id=218513641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TituloJogo" type="Label" parent="VBoxPrincipal" unique_id=1023196888]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r2p0k")
+theme_override_font_sizes/font_size = 45
+text = "Arthur: Novo Naipe"
+
+[node name="Espacador" type="Control" parent="VBoxPrincipal" unique_id=2142142594]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="BotaoJogar" type="Button" parent="VBoxPrincipal" unique_id=768829140]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r2p0k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cnuy3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_plspl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7ypq5")
+text = "Iniciar Jornada"
+
+[node name="BotaoVisualizador" type="Button" parent="VBoxPrincipal" unique_id=1340819660]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r2p0k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cnuy3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ahrq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yf6fv")
+text = "Ver Coleção (Baralho Global)"
+
+[node name="BotaoTutorial" type="Button" parent="VBoxPrincipal" unique_id=1295928221]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r2p0k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cnuy3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b1la8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vju2w")
+text = "Tutorial"
+
+[node name="BotaoSair" type="Button" parent="VBoxPrincipal" unique_id=1410179872]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r2p0k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cnuy3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hhesi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qerp7")
+text = "Sair do Jogo"
+
+[node name="LabelCreditos" type="Label" parent="." unique_id=773555559]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Guilherme Fagundes de Almeida
+Kaio Luiz Ferreira
+João Pedro Ribeiro 
+2026"
+horizontal_alignment = 1
+vertical_alignment = 1
