@@ -106,4 +106,5 @@ text = "Ver deck"
 
 [connection signal="pressed" from="Rotas/BotaoFase1" to="." method="_on_botao_fase_1_pressed"]
 [connection signal="pressed" from="Rotas/BotaoFase2" to="." method="_on_botao_fase_2_pressed"]
+[connection signal="pressed" from="Rotas/BotaoFase3" to="." method="_on_botao_fase_3_pressed"]
 [connection signal="pressed" from="BotaoVerDeck" to="." method="_on_botao_ver_deck_pressed"]

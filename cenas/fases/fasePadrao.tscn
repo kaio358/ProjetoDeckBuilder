@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://b3n0rufpggixc" path="res://scripts/ui/interface_mana.gd" id="4_vf7on"]
 [ext_resource type="PackedScene" uid="uid://skrvko6rydxt" path="res://cenas/deck/deck.tscn" id="6_ufo4b"]
 [ext_resource type="PackedScene" uid="uid://b23n620hxyt7" path="res://cenas/cartas/cardPadraoMagia.tscn" id="7_eke0r"]
+[ext_resource type="AudioStream" uid="uid://wfqykk2yhiot" path="res://efeitosSonoros/cassetteBeatsOST_VictoryTheme.mp3" id="12_vf7on"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4gaf"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -163,6 +164,9 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 6
+
+[node name="SomVitoria" type="AudioStreamPlayer2D" parent="." unique_id=995484684]
+stream = ExtResource("12_vf7on")
 
 [connection signal="pressed" from="BattleUI/BotaoPassarTurno" to="GerenciadorTurno" method="passarTurno"]
 [connection signal="pressed" from="TelaFimDeJogo/BotaoContinuar" to="." method="_on_botao_continuar_pressed"]

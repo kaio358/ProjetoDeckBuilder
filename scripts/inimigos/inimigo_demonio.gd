@@ -7,15 +7,13 @@ func planejarProximoTurno() -> void:
 		proximaAcao = "ataque_forte"
 		valorAcao = 50 
 		
-	
-		displayIntencao.text = "💀 Ataque Massivo:" + str(valorAcao)
+		atualizarTextoIntencao()
 		
 		if displayIntencao != null:
 			displayIntencao.show()
 			
 		passoAtual = (passoAtual + 1) % padraoAcoes.size()
 	else:
-
 		super()
 
 func executarAcaoTurno() -> void:

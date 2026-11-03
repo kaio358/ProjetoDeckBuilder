@@ -15,6 +15,7 @@ func _ready() -> void:
 func mostrarVitoria() -> void:
 	print("PASSO 3: A FasePadrao recebeu o aviso de vitória!")
 	telaFim.show()
+	$SomVitoria.play()
 	textoFinal.text = "VITÓRIA!\nO inimigo foi derrotado!"
 	textoFinal.add_theme_color_override("font_color", Color.GREEN_YELLOW)
 	get_tree().paused = true # <--- ISSO PAUSA TUDO (cartas, monstros, turnos)
@@ -30,9 +31,11 @@ func mostrarDerrota() -> void:
 func _on_botao_continuar_pressed() -> void:
 	get_tree().paused = false
 	
-	# Se ele acabou de passar da fase 1, libera a fase 2
+	# Se ele acabou de passar da fase 
 	if DadosJogador.faseDesbloqueada == 1:
 		DadosJogador.faseDesbloqueada = 2
+	elif DadosJogador.faseDesbloqueada == 2:
+		DadosJogador.faseDesbloqueada = 3
 	
 	# Troca para a tela do Mapa 
 	get_tree().change_scene_to_file("res://cenas/ui/tela_recompensa.tscn")

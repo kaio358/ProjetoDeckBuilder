@@ -6,17 +6,16 @@ func planejarProximoTurno() -> void:
 	
 	if acaoDaVez == "ataque_forte":
 		proximaAcao = "ataque_forte"
-		valorAcao = 30 # Dano fixo do chefe
-		displayIntencao.text = "💀 Ataque Massivo: " + str(valorAcao)
+		valorAcao = 30 
+		
+		atualizarTextoIntencao()
 		
 		if displayIntencao != null:
 			displayIntencao.show()
 			
 		passoAtual = (passoAtual + 1) % padraoAcoes.size()
 	else:
-		# Se for ataque normal, defesa ou espera, deixa o InimigoPadrao cuidar
 		super()
-
 func executarAcaoTurno() -> void:
 	if proximaAcao == "ataque_forte":
 		if displayIntencao != null:

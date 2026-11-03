@@ -28,6 +28,9 @@ func _on_botao_fase_1_pressed() -> void:
 func _on_botao_fase_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://cenas/fases/Fase2.tscn")
 
+func _on_botao_fase_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://cenas/fases/Fase3.tscn")
+
 
 func _on_botao_fogueira_pressed() -> void:
 	print("Carregando cena da Fogueira (Ainda não criada)")
