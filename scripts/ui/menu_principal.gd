@@ -9,6 +9,7 @@ const Tutorial = "res://cenas/fases/Tutorial.tscn"
 @onready var botaoJogar: Button = $VBoxPrincipal/BotaoJogar
 @onready var botaoVisualizador: Button = $VBoxPrincipal/BotaoVisualizador
 @onready var botaoTutorial: Button = $VBoxPrincipal/BotaoTutorial
+@onready var botaoConfiguracoes: Button = $VBoxPrincipal/BotaoConfiguracoes
 @onready var botaoSair: Button = $VBoxPrincipal/BotaoSair
 
 func _ready() -> void:
@@ -17,7 +18,7 @@ func _ready() -> void:
 	botaoVisualizador.pressed.connect(_on_botao_visualizador_pressed)
 	botaoTutorial.pressed.connect(_on_botao_tutorial_pressed)
 	botaoSair.pressed.connect(_on_botao_sair_pressed)
-	
+	botaoConfiguracoes.pressed.connect(_on_botao_configuracoes_pressed)
 	# No futuro Tocar a música do menu principal aqui, caso utilize um Singleton de Áudio
 	# AudioManager.tocar_musica_menu()
 
@@ -48,6 +49,10 @@ func _on_botao_visualizador_pressed() -> void:
 func _on_botao_tutorial_pressed() -> void:
 	
 	get_tree().change_scene_to_file(Tutorial)
+
+func _on_botao_configuracoes_pressed() -> void:
+	pass
+	# get_tree().change_scene_to_file("res://cenas/configuracoes.tscn")
 
 func _on_botao_sair_pressed() -> void:
 	# Encerra o jogo imediatamente 

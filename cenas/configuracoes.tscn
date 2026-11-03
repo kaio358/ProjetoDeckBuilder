@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://e25kajl1rooq"]
+
+[ext_resource type="Script" uid="uid://dks52avna6fdw" path="res://scripts/sistemaGeral/configuracoes.gd" id="1_lx6od"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hh8ww"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.8050004, 0.14730084, 0.1418814, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx6od"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.979358, 0.41180938, 0.36219728, 0.9764706)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7k442"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.65898526, 0.11024796, 0.10544666, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="Configuracoes" type="Control" unique_id=1087799099]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lx6od")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=1343075135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12591085, 0.12591085, 0.12591082, 0.7137255)
+
+[node name="CaixaCentral" type="VBoxContainer" parent="." unique_id=1135695866]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -62.5
+offset_right = 78.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TextoVolume" type="Label" parent="CaixaCentral" unique_id=103563129]
+layout_mode = 2
+text = "Volume"
+
+[node name="SliderVolume" type="HSlider" parent="CaixaCentral" unique_id=958358030]
+layout_mode = 2
+value = 50.0
+
+[node name="BotaoTelaCheia" type="CheckButton" parent="CaixaCentral" unique_id=5460335]
+layout_mode = 2
+text = "Modo Tela Cheia"
+
+[node name="BotaoVoltar" type="Button" parent="CaixaCentral" unique_id=1260010330]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hh8ww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lx6od")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7k442")
+text = "Voltar"

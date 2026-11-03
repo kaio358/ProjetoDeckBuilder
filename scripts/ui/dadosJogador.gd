@@ -61,18 +61,7 @@ func _inicializar_deck() -> void:
 			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
 		baralhoGlobal.append(cartaMagia)
-	#Cura
-	for i in range(2):
-		var cartaMagia = {
-			"tipo": "magia",
-			"subtipo": "cura",
-			"nome": "Poção " + str(i + 1),
-			"custo": 2,
-			"texto": "Cura +10",
-			"poder": 10,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
-		}
-		baralhoGlobal.append(cartaMagia)
+
 		
 	#Soma
 	for i in range(2):

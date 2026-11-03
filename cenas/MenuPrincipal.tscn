@@ -81,6 +81,39 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkbie"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.39607844, 0.2627451, 0.12941177, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s7wp"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.60214305, 0.4100006, 0.21978748, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgkli"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2969628, 0.19245869, 0.08776588, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhesi"]
 content_margin_left = 20.0
 content_margin_top = 10.0
@@ -179,6 +212,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_cnuy3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b1la8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vju2w")
 text = "Tutorial"
+
+[node name="BotaoConfiguracoes" type="Button" parent="VBoxPrincipal" unique_id=79404005]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r2p0k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkbie")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6s7wp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tgkli")
+text = "Configuração"
 
 [node name="BotaoSair" type="Button" parent="VBoxPrincipal" unique_id=1410179872]
 layout_mode = 2

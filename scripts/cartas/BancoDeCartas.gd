@@ -45,5 +45,17 @@ var catalogo: Dictionary = {
 			"poder": 5,
 			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
 		}
-	]
+	],
+	"cura": [
+		 {
+			"tipo": "magia",
+			"subtipo": "cura",
+			"nome": "Poção ",
+			"custo": 2,
+			"texto": "Cura +10",
+			"poder": 10,
+			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+		}]
+		
+	
 }
