@@ -1,0 +1,13 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://u8o4h72na5kr"]
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_j3pel"]
+resource_name = "Filter"
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_j3pel"]
+resource_name = "Panner"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectFilter_j3pel")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectPanner_j3pel")
+bus/0/effect/1/enabled = false

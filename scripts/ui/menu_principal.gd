@@ -20,7 +20,7 @@ func _ready() -> void:
 	botaoSair.pressed.connect(_on_botao_sair_pressed)
 	botaoConfiguracoes.pressed.connect(_on_botao_configuracoes_pressed)
 	# No futuro Tocar a música do menu principal aqui, caso utilize um Singleton de Áudio
-	# AudioManager.tocar_musica_menu()
+	GerenciadorMusica.tocarMusica(load("res://efeitosSonoros/cassetteBeatsOST_title.mp3"))
 
 func _on_botao_jogar_pressed() -> void:
 	
@@ -51,8 +51,8 @@ func _on_botao_tutorial_pressed() -> void:
 	get_tree().change_scene_to_file(Tutorial)
 
 func _on_botao_configuracoes_pressed() -> void:
-	pass
-	# get_tree().change_scene_to_file("res://cenas/configuracoes.tscn")
+	var telaConfig = preload("res://cenas/configuracoes.tscn").instantiate()
+	add_child(telaConfig)
 
 func _on_botao_sair_pressed() -> void:
 	# Encerra o jogo imediatamente 

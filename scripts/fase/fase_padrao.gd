@@ -9,13 +9,14 @@ class_name FasePadrao
 
 func _ready() -> void:
 	telaFim.hide() 
-
+	GerenciadorMusica.tocarMusica(load("res://efeitosSonoros/bloomTownOst_Nightingale.mp3"))
 
 # Funções que serão chamadas quando alguém morrer
 func mostrarVitoria() -> void:
 	print("PASSO 3: A FasePadrao recebeu o aviso de vitória!")
-	telaFim.show()
 	$SomVitoria.play()
+	telaFim.show()
+	
 	textoFinal.text = "VITÓRIA!\nO inimigo foi derrotado!"
 	textoFinal.add_theme_color_override("font_color", Color.GREEN_YELLOW)
 	get_tree().paused = true # <--- ISSO PAUSA TUDO (cartas, monstros, turnos)

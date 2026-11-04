@@ -42,5 +42,6 @@ func mudouTelaCheia(ativado: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func clicouVoltar() -> void:
+	queue_free()
 	# Manda o jogador de volta para a tela inicial
-	get_tree().change_scene_to_file("res://cenas/MenuPrincipal.tscn")
+	#get_tree().change_scene_to_file("res://cenas/MenuPrincipal.tscn")

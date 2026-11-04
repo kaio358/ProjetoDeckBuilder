@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	_atualizarBloqueios()
+	GerenciadorMusica.tocarMusica(load("res://efeitosSonoros/cassetteBeatsOST_title.mp3"))
 
 func _atualizarBloqueios() -> void:
 	# Trava tudo que for avançado por padrão

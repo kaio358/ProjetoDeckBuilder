@@ -1,6 +1,9 @@
 extends FasePadrao
 
 
+func _ready() -> void:
+	GerenciadorMusica.tocarMusica(load("res://efeitosSonoros/bloomTownOst_Ignite.mp3"))
+
 func mostrarVitoria() -> void:
 	print("PASSO 3 FINAL: O Lorde Demônio caiu!")
 	telaFim.show()

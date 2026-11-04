@@ -265,7 +265,7 @@ func _resetarCombos() -> void:
 
 func calcularEfeitoComCombo(valorBase: int) -> int:
 	# Depois que o golpe acontece, o combo descarrega e volta ao normal
-	var valorFinal = (valorBase + bonusSoma) * bonusMultiplicador
+	var valorFinal = (valorBase * bonusMultiplicador  + bonusSoma)
 	
 	# Depois que o efeito acontece, o combo descarrega e volta ao normal
 	bonusSoma = 0

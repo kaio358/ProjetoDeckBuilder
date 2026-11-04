@@ -51,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12591085, 0.12591085, 0.12591082, 0.7137255)
+color = Color(0.061369084, 0.0613691, 0.06136907, 0.7137255)
 
 [node name="CaixaCentral" type="VBoxContainer" parent="." unique_id=1135695866]
 layout_mode = 1
@@ -78,6 +78,12 @@ value = 50.0
 
 [node name="BotaoTelaCheia" type="CheckButton" parent="CaixaCentral" unique_id=5460335]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 10
 text = "Modo Tela Cheia"
 
 [node name="BotaoVoltar" type="Button" parent="CaixaCentral" unique_id=1260010330]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvpt4snp4q3we"]
+
+[ext_resource type="Script" uid="uid://custi0ekxx02i" path="res://scripts/sistemaGeral/gerenciador_musica.gd" id="1_bwqy8"]
+
+[node name="GerenciadorMusica" type="Node2D" unique_id=469388654]
+script = ExtResource("1_bwqy8")
+
+[node name="TocadorBGM" type="AudioStreamPlayer" parent="." unique_id=1221052551]
+process_mode = 3
