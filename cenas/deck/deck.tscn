@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://skrvko6rydxt"]
 
 [ext_resource type="Script" uid="uid://e0nfukd3sll4" path="res://scripts/deck/deck.gd" id="1_sb5xe"]
+[ext_resource type="AudioStream" uid="uid://cnichhh736fhq" path="res://efeitosSonoros/shufflingCards.mp3" id="2_jhj1n"]
 
 [node name="Deck" type="Node2D" unique_id=1406295150]
 script = ExtResource("1_sb5xe")
 
 [node name="imagemDeck" type="Sprite2D" parent="." unique_id=2007702294]
+
+[node name="SomEmbaralhar" type="AudioStreamPlayer" parent="." unique_id=1515148061]
+stream = ExtResource("2_jhj1n")
+volume_db = -0.1

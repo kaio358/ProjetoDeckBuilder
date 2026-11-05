@@ -11,8 +11,36 @@ script = ExtResource("2_gvo2i")
 [node name="TelaFimDeJogo" parent="." index="4" unique_id=1936048821]
 visible = false
 
+[node name="TextoFinal" parent="TelaFimDeJogo/ColorRect" parent_id_path=PackedInt32Array(1065175528) index="0" unique_id=656612395]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -604.5
+offset_top = 0.0
+offset_right = 604.5
+offset_bottom = 346.0
+grow_horizontal = 2
+autowrap_mode = 2
+
+[node name="BotaoContinuar" parent="TelaFimDeJogo" index="1" unique_id=589319797]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = 86.0
+offset_right = 36.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CenarioFundo" parent="CamadaFundo" parent_id_path=PackedInt32Array(1555415550) index="0" unique_id=1547979423]
 texture = ExtResource("3_lgly5")
 
 [node name="InimigoPadrao" parent="." index="6" unique_id=466760575 instance=ExtResource("3_irb2q")]
 position = Vector2(810, 268)
+
+[node name="MenuPausa" parent="." index="8" unique_id=1338095089]
+visible = false

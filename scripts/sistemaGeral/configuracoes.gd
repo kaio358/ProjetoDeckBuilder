@@ -6,6 +6,14 @@ extends Control
 @onready var botaoVoltar: Button = $CaixaCentral/BotaoVoltar
 
 func _ready() -> void:
+	# Pega o volume atual do sistema para a barrinha não carregar sempre no meio
+	var indiceCanalAudio = AudioServer.get_bus_index("Master")
+	var volumeDbAtual = AudioServer.get_bus_volume_db(indiceCanalAudio)
+	
+	# acho que o db_to_linear faz o caminho inverso do linear_to_db (transforma dB de volta em 0.0 a 1.0)
+	# aí multiplicamos por 100.0 para alinhar com o Slider
+	sliderVolume.value = db_to_linear(volumeDbAtual) * 100.0
+
 	# Conectando os sinais direto por código! Assim não preciso ir na aba "Sinais" do Inspetor toda hora.
 	# Quando o evento acontecer, ele chama a função correspondente lá embaixo.
 	botaoVoltar.pressed.connect(clicouVoltar)

@@ -19,6 +19,7 @@ var baralhoGlobal: Array[Dictionary] = []
 # Combos das cartas ( combos das ruas haha)
 var bonusSoma: int = 0
 var bonusMultiplicador: int = 1
+var bonusPotencia: int = 1
 # Novas variáveis para os testes de subtração e divisão
 var descontoManaSubtracao: int = 0  # acho que isso guarda o desconto de mana
 var divisorDanoRecebido: int = 1    # para dividir o dano que o inimigo der
@@ -49,7 +50,7 @@ func _inicializar_deck() -> void:
 			"custo": 1,
 			"texto": "Causa 5 de dano direto",
 			"dano": 5,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/ataque.jpeg"
 		}
 		baralhoGlobal.append(cartaAtaque)
 	for i in range(1):
@@ -59,7 +60,7 @@ func _inicializar_deck() -> void:
 			"custo": 0,
 			"texto": "Causa 3 de dano direto por custo 0.",
 			"dano": 3,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/ataqueRapido.jpeg"
 		}
 		baralhoGlobal.append(cartaAtaque)
 	
@@ -70,7 +71,7 @@ func _inicializar_deck() -> void:
 			"custo": 2,
 			"texto": "Causa 10 de dano direto pesado.",
 			"dano": 10,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/investidaPesada.jpeg"
 		}
 		baralhoGlobal.append(cartaAtaque)
 		
@@ -83,7 +84,7 @@ func _inicializar_deck() -> void:
 			"custo": 1,
 			"texto": "Ganha 5 de armadura",
 			"poder": 5,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/defesa.jpeg"
 		}
 		baralhoGlobal.append(cartaMagia)
 
@@ -96,7 +97,7 @@ func _inicializar_deck() -> void:
 			"custo": 1, # abaixei o custo pra valer a pena
 			"texto": "Soma +5 à próxima carta",
 			"poder": 5,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/soma.jpeg"
 		}
 		baralhoGlobal.append(cartaMagia)
 		
@@ -109,7 +110,7 @@ func _inicializar_deck() -> void:
 			"custo": 1, # deixei 1 pra ser util contra o boss
 			"texto": "Multiplica (X2) a próxima carta",
 			"poder": 2,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/multiplicacao.jpeg"
 		}
 		baralhoGlobal.append(cartaMagia)
 
@@ -122,7 +123,7 @@ func _inicializar_deck() -> void:
 			"custo": 0, # zero mana porque ele desconta a próxima
 			"texto": "Subtrai 1 de mana da próxima carta",
 			"poder": 1,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/subtracao.jpeg"
 		}
 		baralhoGlobal.append(cartaMagia)
 		
@@ -135,7 +136,7 @@ func _inicializar_deck() -> void:
 			"custo": 1,
 			"texto": "Divide o ataque inimigo por 2",
 			"poder": 2,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/divisao.jpeg"
 		}
 		baralhoGlobal.append(cartaMagia)
 
@@ -256,6 +257,9 @@ func adicionarDivisao(valor: int) -> void:
 	# e manda eles rodarem a função "atualizarTextoIntencao" imediatamente.
 	get_tree().call_group("inimigo", "atualizarTextoIntencao")
 
+func adicionarPotencia(valor: int) -> void:
+	bonusPotencia = valor
+
 func _resetarCombos() -> void:
 	# limpa tudo que é matemática caso inicie uma nova run pra não vazar combo antigo
 	bonusSoma = 0
@@ -265,7 +269,8 @@ func _resetarCombos() -> void:
 
 func calcularEfeitoComCombo(valorBase: int) -> int:
 	# Depois que o golpe acontece, o combo descarrega e volta ao normal
-	var valorFinal = (valorBase * bonusMultiplicador  + bonusSoma)
+	var valorElevado = int(pow(valorBase, bonusPotencia))
+	var valorFinal = (valorElevado * bonusMultiplicador  + bonusSoma)
 	
 	# Depois que o efeito acontece, o combo descarrega e volta ao normal
 	bonusSoma = 0

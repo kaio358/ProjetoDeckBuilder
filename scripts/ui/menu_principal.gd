@@ -27,16 +27,14 @@ func _on_botao_jogar_pressed() -> void:
 	DadosJogador.resetarParaNovaRun()
 	
 	
-	if DadosJogador.baralhoGlobal.is_empty():
-		
-		# DadosJogador.inicializar_baralho_inicial()
-		pass
+	if DadosJogador.baralhoGlobal.is_empty():	
+		DadosJogador._inicializar_deck()
 		
 	# Libera a progressão para a Fase 1
 	DadosJogador.faseDesbloqueada = 1
 	
 	# Efeito de transição ou fade-out pode ser colocado aqui antes de mudar
-	get_tree().change_scene_to_file(MapaDeRotas)
+	get_tree().change_scene_to_file("res://cenas/ui/historia_hq.tscn")
 
 func _on_botao_visualizador_pressed() -> void:
 	

@@ -11,8 +11,8 @@ var catalogo: Dictionary = {
 			"nome": "Ataque Duplo",
 			"custo": 2,
 			"texto": "Causa 6x2 de dano, equivalente a 12 de dano",
-			"poder": 12,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"dano": 12,
+			"caminho_imagem": "res://sprites/cartas_imagens/ataqueDuplo.jpeg"
 		},
 		{
 			"tipo": "ataque",
@@ -21,7 +21,7 @@ var catalogo: Dictionary = {
 			"custo": 2,
 			"texto": "Causa 8 de dano. Cura 25% do dano final em vida.",
 			"dano": 8,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/rouboDeVida.jpeg"
 		},
 		{
 			"tipo": "ataque",
@@ -30,7 +30,7 @@ var catalogo: Dictionary = {
 			"custo": 2,
 			"texto": "Causa 6 de dano e divide (÷2) o próximo ataque inimigo.",
 			"dano": 6,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/corteFracionado.jpeg"
 		},
 		{
 			"tipo": "ataque",
@@ -40,7 +40,7 @@ var catalogo: Dictionary = {
 			"texto": "Causa 8 de dano e ganha 8 de armadura.",
 			"dano": 8,
 			"poder": 8,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/ataqueDeEscudo.jpeg"
 		},
 		{
 			"tipo": "ataque",
@@ -49,7 +49,7 @@ var catalogo: Dictionary = {
 			"custo": 1,
 			"texto": "Causa 3 de dano. Dobra (x2) para cada carta jogada neste turno (conta essa carta também).",
 			"dano": 3,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/ataqueFinal.jpeg"
 		},
 		{
 			"tipo": "ataque",
@@ -59,29 +59,29 @@ var catalogo: Dictionary = {
 			"texto": "Causa 3 de dano e reduz -6 do ataque/defesa inimigo.",
 			"dano": 3,
 			"poder": 6,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/corteNegativo.jpeg"
 		}
 	],
 	"defesa": [
 		{
 			"tipo": "magia", 
 			"subtipo": "defesa",
-			"nome": "Defesa",
+			"nome": "Defesa +15 ",
 			"custo": 1,
-			"texto": "Ganha 5 de armadura",
-			"poder": 5,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"texto": "Ganha 15 de armadura",
+			"poder": 15,
+			"caminho_imagem": "res://sprites/cartas_imagens/defesa+15.jpeg"
 		}
 	],
 	"combos": [
 		{
 			"tipo": "magia",
 			"subtipo": "soma",
-			"nome": "Soma",
+			"nome": "Soma +15",
 			"custo": 2,
 			"texto": "Soma +15 à próxima carta",
 			"poder": 15,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/soma+15.jpeg"
 		},
 		{
 			"tipo": "magia",
@@ -90,7 +90,7 @@ var catalogo: Dictionary = {
 			"custo": 1,
 			"texto": "Soma +5 à próxima carta",
 			"poder": 5,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/soma.jpeg"
 		},
 		{
 			"tipo": "magia",
@@ -99,7 +99,7 @@ var catalogo: Dictionary = {
 			"custo": 2,
 			"texto": "Eleva ao quadrado (x²) o valor base do próximo golpe.",
 			"poder": 2,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/potencia.jpeg"
 		}
 	],
 	"cura": [
@@ -107,19 +107,19 @@ var catalogo: Dictionary = {
 			"tipo": "magia",
 			"subtipo": "cura",
 			"nome": "Poção ",
-			"custo": 2,
+			"custo": 1,
 			"texto": "Cura +10",
 			"poder": 10,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/cura+10.jpeg"
 		},
 		{
 			"tipo": "magia",
 			"subtipo": "porcentagem",
 			"nome": "Porcentagem (25%)",
-			"custo": 1,
+			"custo": 2,
 			"texto": "Cura 25% da vida máxima de Arthur (20 HP).",
 			"poder": 20,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/curaPorcentagem.jpeg"
 		}
 		],
 	"utilitarias": [
@@ -131,7 +131,7 @@ var catalogo: Dictionary = {
 			"custo": 1,
 			"texto": "Extrai a raiz da armadura inimiga (Reduz em 50%).",
 			"poder": 2,
-			"caminho_imagem": "res://sprites/cartas_imagens/cavaleiro-removebg-preview.png"
+			"caminho_imagem": "res://sprites/cartas_imagens/raiz.jpeg"
 		}
 	]
 		

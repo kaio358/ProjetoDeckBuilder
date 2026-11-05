@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d1g6lqosep028"]
+
+[ext_resource type="Texture2D" uid="uid://mmeu0uxt7dvd" path="res://sprites/hq/inicio.png" id="1_agw62"]
+[ext_resource type="Script" uid="uid://du3xvydeobibd" path="res://scripts/ui/historia_hq.gd" id="1_qygc6"]
+
+[node name="HistoriaHQ" type="Control" unique_id=298350337]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qygc6")
+
+[node name="FundoPreto" type="ColorRect" parent="." unique_id=1399384038]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ImagemHQ" type="TextureRect" parent="." unique_id=595415735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_agw62")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelPular" type="Label" parent="." unique_id=1432242955]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.5
+offset_top = -35.0
+offset_right = 225.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0.007843138, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 25
+text = "Pressione qualquer tecla para pular..."

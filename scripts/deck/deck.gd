@@ -20,6 +20,7 @@ func _ready() -> void:
 func _preparar_batalha() -> void:
 	# Copia as cartas da coleção para começar a batalha.
 	pilhaCompra =  DadosJogador.baralhoGlobal.duplicate(true) # True para copiar tudo!! Não só a estrutura 
+	$SomEmbaralhar.play()
 	pilhaCompra.shuffle()
 	pilhaDescarte.clear()
 
@@ -36,6 +37,7 @@ func comprar_carta() -> Dictionary:
 		# 1. Copia o cemitério de volta para a pilha de compra
 		pilhaCompra = pilhaDescarte.duplicate()
 		# 2. Embaralha tudo
+		$SomEmbaralhar.play()
 		pilhaCompra.shuffle()
 		# 3. Limpa o cemitério
 		pilhaDescarte.clear()

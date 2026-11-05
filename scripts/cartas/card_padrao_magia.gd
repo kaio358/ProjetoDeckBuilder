@@ -39,7 +39,7 @@ func executarEfeito(_alvo: Node2D) -> void:
 			DadosJogador.adicionarDivisao(poderMagico)
 		"potencia":
 			# aplica o multiplicador para simular a potenciação (x²) no combo
-			DadosJogador.adicionarMultiplicador(poderMagico)
+			DadosJogador.adicionarPotencia(poderMagico)
 		"porcentagem":
 			# calcula 25% da vida máxima de Arthur (int evita número decimal)
 			var curaPorcentagem = int(DadosJogador.vidaMaxima * 0.25)
